@@ -90,3 +90,11 @@ Hidden content goes here.
 <a href="https://www.example.com">Learn more</a>
 </div>
 
+<div style="border:1px solid #ccc; border-radius:8px; padding:16px; margin:10px; background-color:#f9f9f9; width:300px;">
+<details>
+<summary>Click to expand</summary>
+
+Hidden content goes here.
+
+</details>
+</div>
