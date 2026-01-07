@@ -251,12 +251,18 @@ let numFive = parseFloat(strFive); // 1234.567
 
 __`Number()`__
 
-converts a value into a number using JavaScript’s numeric conversion rules. returns a NaN if conversion fails.
+converts a value into a number using JavaScript’s numeric conversion rules. returns NaN if conversion fails.
 
 ``` javascript 
 let strSix = '1234.567';
 let numSix = Number(strSix); // 1234.567
 
+```
+``` javascript 
+Number("42");      // 42
+Number("3.14");    // 3.14
+Number(true);      // 1
+Number(false);     // 0
 ```
 
 
