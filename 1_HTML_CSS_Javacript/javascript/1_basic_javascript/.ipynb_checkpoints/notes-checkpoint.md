@@ -1,3 +1,5 @@
+### Variables
+---
  __<u>variable:</u>__ a named container used to store and retrieve data.
 
 
@@ -18,6 +20,8 @@ z = 100; // Uncaught TypeError: Assignment to constant variable
 
 ```
 
+### Primative Data Types
+---
 __<u>Primitive types </u>__ are data types that are stored directly in memory (on the stack) 
 
 * __String__
@@ -95,6 +99,9 @@ console.log(typeof null);
 // Prints: object 
 
 ```
+
+### Template Literals
+---
 __<u>interpolation</u>__ the process of inserting values into a string or expression using __template literals__ so the final result is dynamically constructed at runtime. They allow us to combine strings and place them anywhere we want in the template literal. 
 
 __<u>template literals</u>__ a special type of string written using the backtick character: `
