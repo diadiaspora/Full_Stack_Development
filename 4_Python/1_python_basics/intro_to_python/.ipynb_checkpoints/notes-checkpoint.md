@@ -66,7 +66,7 @@ print(type(25.))
 # prints: <class 'float'>
 ```
 
-#### Booleans
+### Booleans
 ___
 
 <u>Just like in JavaScript</u>, we have true and false, but they are <u>capitalized in Python</u>:
@@ -95,7 +95,7 @@ print(type(None))
 
 ```
 
-#### Converting between data types
+### Converting between data types
 ___
 
 Python does not automatically convert data types like javascript. 
@@ -116,4 +116,176 @@ oct(int)         # Converts `int` to an octal string
 tuple(item)      # Converts `item` to a tuple
 list(item)       # Converts `item` to a list
 dict(item)       # Converts `item` to a dictionary
+```
+
+### Operations
+---
+
+__Math Operations__ 
+* Addition (+)
+* Subtraction (-)
+* Multiplication (*)
+* Division (/)
+* Modulo (remainder) (%)
+* Exponentiation (**)
+
+__Integer Division__
+
+when you divide two numbers (whether they are ints, floats, or a combination of the two), the result is a float, even if there is no remainder:
+
+``` python
+result = 4 / 2
+print(result)
+# prints: 2.0
+print(type(result))
+# prints: <class 'float'>
+```
+
+You’re able to force the result of division to an integer by using // instead of /:
+This will always round down - everything after the decimal is removed
+
+``` python
+result = 4 // 2
+print(result)
+# prints: 2 because the decimal ".0" is truncated
+```
+
+__Shortcut Assignment operators__
+
+operators in JavaScript, increment (++) and decrement (–), do not exist in Python. Use += 1 and -= 1 instead.
+
+```python
+
+# this line of code:
+num = num + 1
+# can be written with this shortcut operator:
+num += 1
+
+# it also works for any of the other math operations:
+num = num / 5
+# can be rewritten like this:
+num /= 5
+
+# and this line:
+num = num * 3
+# can be written as this:
+num *= 3
+# and so on with the other operators
+```
+
+### Working with Strings
+
+##### <a href="https://docs.python.org/3/library/stdtypes.html#string-methods"> Python docs covering string methods. </a>
+---
+
+__Strings__
+
+```python
+my_string = "A double-quoted string"
+your_string = 'A single quoted string'
+```
+
+__Multiline Strings__
+```python
+multiline_string = '''This is my string that
+                      goes on multiple lines
+                      for whatever reason'''
+```
+
+__Concatenating strings__
+
+```python
+little_string = "bad"
+medium_string = "super"
+long_string = medium_string + little_string
+print(long_string)
+# prints: superbad
+```
+
+__String interpolation using f-Strings__
+When the f is placed directly before a string’s opening quote (single or double), it makes a formatted string or f-string for short. (in Javascript this is template literals)
+
+```python
+state = "Hawaii"
+year = 1959
+message = f"{state} was the last state to join the U.S. in {year}."
+print(message)
+# prints: Hawaii was the last state to join the U.S. in 1959.
+```
+
+__`split()`__
+
+```python
+print("ace of spades".split(" "))
+# prints: ['ace', 'of', 'spades']
+
+# however, this won't work:
+print("abcd".split(""))
+# ValueError: empty separator
+```
+
+__`list()`__
+
+```python
+# instead, use the list() function like this:
+print(list("abcd"))
+# prints: ['a', 'b', 'c', 'd']
+
+```
+
+__`index()`__
+
+```python
+# get the index of a substring:
+print("abcd".index("c"))    
+# prints: 2
+# this method raises an error if the substring is not found:
+print("abcd".index("e"))
+# ValueError: substring not found
+```
+
+__`find()`__
+
+```python
+# .find() is similar to .index() but returns -1 if the substring is not found
+# this behavior may be preferable to raising an error:
+print("abcd".find("e"))
+# prints: -1
+```
+
+__`upper()`__
+
+```python
+print("boo".upper())
+# prints: 'BOO'
+```
+
+__`lower()`__
+
+```python
+print("WHY???".lower())
+# prints: 'why???'
+```
+__`replace()`__
+
+```python
+print("Then I went to the store I like".replace("I", "you"))
+# prints: 'Then you went to the store you like'
+```
+
+__`in`__
+use the in operator to quickly find out if one string appears in another.
+
+```python
+print("eggs" in "green eggs and ham")
+# prints: True
+```
+
+__`len()`__
+Use the built-in global len() function on a string to find its length.
+
+```python
+print(len("Tacos"))
+# prints: 5
+
 ```
