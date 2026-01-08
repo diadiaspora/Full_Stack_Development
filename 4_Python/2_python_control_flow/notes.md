@@ -232,3 +232,99 @@ else:
 
 
 ```
+
+## `Looping`
+ Looping repeats a set of actions. Typically code blocks that are repeated  either until a certain condition is no longer met (`while` the condition is `true`) or a specific number of times (`for` a certain number of iterations). 
+___
+
+__`for`__
+Python’s for statement is not designed like the one you first used in JavaScript:
+
+```javascript
+// A JavaScript for loop
+for (let i = 0; i < 10; i++) {
+  // do something ten times
+}
+```
+Python for loop always iterates over the items in a sequence (an ordered collection of items), similar to JavaScript’s for...in and for...of loops. Here’s how Python’s for loop is used to loop through a list (Python’s version of a JavaScript array):
+
+
+```python
+names = ["Emily", "Jack", "Sophia", "Ethan"]
+
+for name in names:
+    print(name)
+```
+
+The JavaScript equivalent would be this:
+
+```javascript
+let names = ["Emily", "Jack", "Sophia", "Ethan"];
+
+for (name of names) {
+  console.log(name);
+}
+```
+___
+
+__`while`__
+Python has a while loop construct that will continue to iterate while a given condition is truthy.
+
+
+```python
+num = 1
+
+while num <= 10:
+    print(num)
+    # prints the numbers 1 through 10
+    num += 1
+```
+
+while loops are for when you don’t know how many times you will need to iterate - for example if you want to continue getting input from a user until a specific condition is met.
+
+
+___
+
+__`break`__ & __`continue`__
+Like in JavaScript, the break statement in Python is used to exit for and while loops immediately.
+
+In for and while loops, the continue statement will end the current iteration of a loop and continue to the next iteration as long as the condition of the loop is still truthy or there are still items to iterate through.
+
+```python
+things = ["computer", "g-g-ghost", "chair", "spider", "desk"]
+
+for thing in things:
+    if thing == "g-g-ghost":
+        print("Oh, that's just my ghost friend, carry on.")
+        continue
+    elif thing == "spider":
+        print("Nope. Burn it down, no more.")
+        break
+    print(f"There is a {thing} in the room.")
+```
+
+---
+
+## `Truthy` & `Falsy`
+Truthy and falsy are conceptual and attempt to treat non-boolean expressions as booleans (true or false)
+___
+
+__Falsy__
+
+* `False`
+  
+* `None`
+
+* `Zero in any numeric type:` 0 0.0
+
+* `Empty sequences or collections:`
+
+    * `''` (empty string)
+    * `[]` (empty list)
+    * `()` (empty tuple)
+    * `{}` (empty dictionary)
+    * `range(0)` (empty range)
+
+__Truthy__
+
+Everything else

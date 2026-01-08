@@ -250,3 +250,29 @@ for (let day = 1; day <= 7; day++) {
 }
 ```
 
+---
+
+## `Truthy` & `Falsy`
+___
+
+Truthy and falsy are conceptual and attempt to treat non-boolean expressions as booleans (true or false)
+___
+
+__Falsy__
+
+* null: Represents the intentional absence of any object value.
+
+* `undefined:` Indicates that a variable has not been assigned a value.
+
+* `false:` The boolean value of false.
+
+* `0 (zero):` The number zero.
+
+* `NaN (Not a Number):` Indicates a value that is not a valid number.
+
+* `'' (An empty string):` Strings are falsy when they are empty. Note, a string with a value
+   of a space (' ') is not empty and therefore is truthy.
+
+__Truthy__
+
+Everything else
