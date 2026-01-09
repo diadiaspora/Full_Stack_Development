@@ -343,5 +343,146 @@ const add = (numA, numB) => {
 
 ```
 
-### Advanced Arrow Functions
+## Advanced Arrow Functions
 ___
+
+### Implicit Return
+___
+
+Arrow functions composed of a single expression (something resolves to a single value) will automatically evaluate and return that expression without requiring us to write the return keyword. Just leave off the curly braces, and the rest happens automatically.
+
+```javascript
+const multiply = (numA, numB) => numA * numB;
+
+console.log(multiply(3, 4));
+// Prints: 12
+```
+
+### Single Parameters
+___
+
+```javascript
+// note the lack of () around the num parameter!
+const addTwo = num => {
+  console.log(num + 2);
+}
+
+addOne(2);
+```
+
+__Here’s an example combining both of the above concepts and using them in a single function:__
+
+```javascript
+const double = num => num * 2;
+```
+
+
+_Arrow Functions have a unique way of binding the this keyword, which makes them unsuitable for use as object methods or constructors_
+
+### Default Parameters
+Any expression can be provided as a default, including objects, functions, etc.
+___
+
+JavaScript has the option to specify default parameters. By specifying a default, name will always equal 'friend' unless an argument is supplied! This overrides the default behavior of name being undefined unless an argument is passed.
+
+```javascript
+const sayHi = (name = 'friend') => {
+  console.log(`Hi ${name}!`);
+}
+
+sayHi();
+// Prints: 'Hi friend!'
+
+sayHi('Joe');
+// Prints: 'Hi Joe!'
+```
+
+### Hoisting
+___
+
+When your code is run, JavaScript takes a first pass at it to identify all the variables and function declarations. Variables are set up but not assigned their values during this first pass, and entire function declarations are moved to the top. This is referred to as hoisting.
+
+```javascript
+// This works!
+declarationAdd(5, 10);
+
+// This breaks!
+expressionAdd(5, 10);
+
+function declarationAdd(a, b) {
+  return a + b;
+}
+
+const expressionAdd = function(a, b) {
+  return a + b;
+}
+
+```
+
+__If fewer arguments are passed than parameters defined, the parameter variables without a matching argument would be undefined.__
+
+```javascript
+const add = (numA, numB, numC) => {
+  return numA + numB + numC;
+}
+
+console.log(add(5, 2));
+// Prints: NaN
+```
+
+### Rest Parameter
+___
+
+The rest parameter syntax allows a function to accept any number of arguments as a named array. The syntax is identical to the spread operator. While the spread operator expands an array into its elements, the rest syntax does the opposite, taking multiple arguments and condensing them into a single array.
+
+```javascript
+// Each argument is condensed into a single array called scores
+function calculateAverage(...scores){
+  let total = 0;
+  // Loop over the scores array to tally up the total
+  for(let i = 0; i < scores.length; i++) {
+    total = total + score[i]
+  }
+  // Divide the total by the length of the array to find the average
+  return total / scores.length;
+}
+
+calculateAverage(1, 2, 3, 4, 5, 6, 7, 8, 9, 10); // returns 5.5
+```
+
+One way to stop our code from affecting the global scope is by using something called an Immediately Invoked Function Expression, or IIFE (pronounced “iffy”). This is a special kind of function that runs as soon as it is defined.
+
+```javascript
+(() => {
+  'use strict';
+
+  // your code here
+})();
+
+```
+
+The function is wrapped in parentheses to turn it into a complete expression. This is called a grouping operator.
+
+After that, the final () at the end immediately calls the function. This means the code inside the function runs right away, without waiting for us to call it later.
+
+### Nesting Functions
+___
+
+An outer function may need a helper function relevant only to a given function. It would be good programming practice to hide that function from the rest of the program by nesting it within the function that needs it.
+
+```javascript
+const title = 'This is the title of my cool book';
+
+const toTitleCase = (string) =>{
+  const capitalize = (word) => {
+    return word.slice(0,1).toUpperCase() + word.slice(1);
+  }
+
+  let strArr = string.split(' ');
+  strArr.forEach((el, i) => strArr[i] = capitalize(el));
+  return strArr.join(' ');
+}
+
+toTitleCase(title); // This Is The Title Of My Cool Book
+
+```

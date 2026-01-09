@@ -1,4 +1,4 @@
-# Python
+# __`Python`__
 
 #### Python is a true object-oriented programming language.
 ##### (Based on classes and objects) 
@@ -10,13 +10,139 @@ Follow
 <a href="https://peps.python.org/pep-0008/"> PEP8 Style Guide for Python Code  </a>
 as closely as possible for all our work in Python. In this convention we use 4-space indentation.
 
+### `Comments`
+___
 
-### Data Types
+__Single-line comments__ in Python start with the `#` character and continue to the end of the line.
+```python
+# This is a comment! Python will ignore it.
+```
+
+__Multiline comments__, use three quotes (either as """ double quotes or ''' single quotes) wrapped around your comments, or use the # character at the start of each line:
+
+```python
+"""
+this is a
+multiline comment
+"""
+
+'''
+this is also a multiline comment
+you can use either set of quotes
+'''
+
+# this is a
+# multiline comment
+
+```
+
+### `Printing in the console(output)`
+___
+In Python, use `print()` function to print a message to the console. In javascript it is `console.log();`
+
+```python
+print("Hello, world!") # prints: Hello, world!
+```
+
+### `input()`
+---
+The input() function allows users to enter data during program execution.
+
+```python
+name = input(“Enter your name:”)
+print(“Hello,”, name)
+```
+
+
+### `Executing Python from Terminal`
+___
+
+```python
+python3 <filename>.py
+```
+```python
+python3 intro_to_python.py
+```
+
+### `Variables`
+Variables in Python hold the data an app needs when it runs, much like they do in JavaScript.
+___
+
+__Declaring Variables__
+
+```python
+num = 15
+```
+
+> Notice the lack of let or const keywords. In Python, we only need to decide on a variable’s name and the value we want to assign to it. There is no way to define a constant variable.
+
+> You cannot declare a variable without assigning to it:
+
+```python
+movie
+# returns: NameError: name 'movie' is not defined
+# this is illegal syntax that cannot be used
+```
+
+__Examples of variables__
+
+```python
+x = 10 # Integer variable
+name = "Alice" # String variable
+price = 99.99 # Float variable
+is_active = True # Boolean variable
+
+# Assigning multiple variables in a single line
+
+a, b, c = 1, "Hello", 3.14
+```
+
+### `Naming Conventions`
+___
+
+When you have a variable name with multiple words, the convention is to snake_case the identifier:
+
+```python
+# in Python, we use snake_case
+my_number = 10
+```
+
+| Thing     | Convention         | Example           |
+| --------- | ------------------ | ----------------- |
+| variables | snake_case         | `total_price`     |
+| functions | snake_case         | `get_user()`      |
+| methods   | snake_case         | `save_file()`     |
+| constants | UPPER_SNAKE_CASE   | `MAX_SIZE`        |
+| classes   | PascalCase         | `UserProfile`     |
+| modules   | snake_case         | `math_utils.py`   |
+| private   | leading underscore | `_internal_value` |
+
+### `Reassigning variables`
+---
+We can freely assign a new value to a variable after it has been declared:
+
+```python
+my_number = 15
+print(my_number)
+# prints: 15
+my_number = -4
+print(my_number)
+# prints: -4
+```
+
+### `Constants`
+___
+
+While Python doesn’t have a way to declare constants, the convention is to declare any variable you’d like to be known as a constant in SCREAMING_SNAKE_CASE.
+
+
+## __`Data Types`__
 ___
 <div style="display:flex; gap:16px;">
 
   <div style="border:1px solid #ccc; border-radius:8px; padding:16px; background-color:#f9f9f9; width:300px;">
     <h3>Scalar Data</h3>
+      <p> Single value data.A scalar represents one atomic piece of data. </p>
     <ul>
         <li> Integer</li>
         <li> Float</li>
@@ -27,6 +153,7 @@ ___
 
   <div style="border:1px solid #ccc; border-radius:8px; padding:16px; background-color:#f9f9f9; width:300px;">
     <h3>Aggregated data</h3>
+      <p> Multiple values grouped together. These types store multiple values inside one object. </p>
     <ul>
         <li> String</li>
         <li> Set</li>
@@ -125,7 +252,7 @@ list(item)       # Converts `item` to a list
 dict(item)       # Converts `item` to a dictionary
 ```
 
-### Operations
+## `Operations`
 ---
 
 __Math Operations__ 
@@ -180,7 +307,7 @@ num *= 3
 # and so on with the other operators
 ```
 
-### Working with Strings
+## `Working with Strings`
 
 ##### <a href="https://docs.python.org/3/library/stdtypes.html#string-methods"> Python docs covering string methods. </a>
 ---

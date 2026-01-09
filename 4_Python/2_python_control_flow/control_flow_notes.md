@@ -72,6 +72,60 @@ print(8 < 8)
 
 ```
 
+### Identity Operators
+Compare variables to see whether they are the same object at the same memory address.
+
+`is` Returns True if both variables are the same object.
+
+```python
+a = ['a', 'b', 'c']
+b = ['a', 'b', 'c']
+a is b
+False
+```
+
+`is not` Returns True if both variables are not the same object
+
+
+```python
+a = ['a', 'b', 'c']
+b = ['a', 'b', 'c']
+a is not b
+True
+```
+
+```python
+a =[1, 2, 3]
+b = a
+a is b
+True
+```
+
+### Membership Operations
+They test if a sequence is present in an object.
+
+`in`: Returns True if a value is present in the
+object
+
+```python
+a = [20, 45, 10]
+10 in a
+True
+```
+
+`not in`: Returns True if a value is not present in
+the object
+
+```python
+a = [20, 45, 10]
+10 not in a
+False
+```
+```python
+a = [20, 45, 10]
+30 not in a
+True
+```
 ### Logical Operators
 Logical operators work the same as JavaScript in Python, except Python uses English words instead of symbols:
 
