@@ -4,6 +4,31 @@
 ##### (Based on classes and objects) 
 ---
 
+Object-Oriented Programming (OOP) refers to languages that use objects in programming. It aims to implement real-world entities such as inheritance, information hiding, and polymorphism.
+
+The four concepts of object-oriented programming are:
+
+* Encapsulation
+* Inheritance
+* Polymorphism
+* Abstraction
+
+Object-oriented programming (OOP) is a programming paradigm that uses objects to design applications and computer programs.
+
+
+__`Encapsulation`__
+
+Encapsulation is about keeping the data and behavior that manipulates that data under one roof within a class. This not only organizes the data and methods into manageable parts but can also protect the data by hiding it from outside interference, which can prevent misuse or errors.
+
+__`Inheritance`__
+
+Inheritance allows a new class to receive or inherit attributes and methods from an existing class. This enables you to eliminate redundant code and extend the functionality of existing classes.
+
+__`Polymorphism and abstraction`__
+
+While key to OOP, polymorphism and abstraction are more advanced concepts that are best learned after you’ve developed a deeper understanding of encapsulation and inheritance. We’ll save these topics for another time.
+___
+
 ## Python uses indentation to define blocks of code - not curly braces. Proper indentation is mandatory in Python!
 
 Follow 

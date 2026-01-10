@@ -8,7 +8,7 @@ Statements execute one at a time in succession. This is the default behavior.
 
 __Branching:__ 
 
-Different code paths are executed based on a conditional expression.
+Different code paths are executed based on a conditional expression. They execute a block of code based on whether a condition is True or False, controlling program flow and decision-making.
 
 __Looping:__
 
@@ -220,7 +220,30 @@ print(not 'hello')
 ```
 
 ## `Branching`
+__Conditional Statements__
+Conditional statements, also known as decision control structures, evaluate variables or expressions that return either True or False.
 ___
+
+__`if` Statement__
+Python uses the if statement to change the program's control flow. The indentation marks the block of code.
+
+__Syntax__
+
+```python
+if condition:
+statement
+statement
+
+inp = input("Nationality ? ")
+if inp == "French":
+print("Préférez vous parler francais?")
+```
+
+* A colon indicates the beginning of the block.
+* The block is usually indented by four spaces.
+* Each statement within the block must have the
+  same indentation.
+
 
 __`if`__
 __Single Path__
@@ -246,6 +269,28 @@ if walls == "sticky":
 ```
 ___
 
+__`if else` statement__
+This evaluates the condition and executes the if block only when the test condition is
+True. Otherwise, it executes the else block.
+
+The else statement is optional in the if-else construct.
+```python
+if condition:
+statement 1
+statement 2
+else:
+statement 3
+statement 4
+
+num = int(input('Enter a number : '))
+if num > 0:
+print(num, 'is a positive number.')
+else:
+print(num, 'is a negative
+```
+___
+
+
 
 __`if else`__
 __Dual Path__
@@ -265,6 +310,37 @@ else:
 ```
 
 ___
+
+__`If-Elif-Else` Statement__
+
+This allows checking multiple conditions. If the if condition is False, it checks the next elif condition, and so on.
+
+Only one block among the if-elif-else blocks is executed. If all conditions are False, the else block is executed.
+
+```python
+if condition 1:
+statement
+elif condition 2:
+statement
+elif condition 3:
+statement
+else:
+statement
+
+    marks = int(input('Enter Marks : '))
+if marks >= 90:
+print('Grade A')
+elif marks >= 70:
+print('Grade B')
+elif marks >= 55:
+print('Grade C')
+elif marks >= 35:
+print('Grade D')
+else:
+print('Grade F')
+```
+
+
 
 
 __`if...else if...else`__
@@ -287,12 +363,53 @@ else:
 
 ```
 
+__`Nested-If`__
+
+* This format is called nesting.
+* Indentation defines the level of nesting.
+
+```python
+if (condition 1):
+statement
+# Executes when condition 1 is True
+if (condition 2):
+# Executes when condition 2 is also True
+# inner if Block ends here
+# outer if Block ends here
+
+num = 15
+
+if num >= 0:
+if num == 0:
+print("Zero")
+else:
+print("Positive number")
+else:
+print("Negative number")
+```
+
 ## `Looping`
  Looping repeats a set of actions. Typically code blocks that are repeated  either until a certain condition is no longer met (`while` the condition is `true`) or a specific number of times (`for` a certain number of iterations). 
 ___
 
 __`for`__
-Python’s for statement is not designed like the one you first used in JavaScript:
+The for loop iterates over a sequence list, tuple, string, or other objects.
+
+__Syntax__ 
+
+```python
+for a in iteration_object:
+Body
+of
+loop
+
+string = 'Python'
+for s in string:
+print(s)
+```
+
+
+Python’s `for` statement is not designed like the one you first used in JavaScript:
 
 ```javascript
 // A JavaScript for loop
@@ -322,8 +439,21 @@ for (name of names) {
 ___
 
 __`while`__
-Python has a while loop construct that will continue to iterate while a given condition is truthy.
+Python has a while loop construct that will continue to iterate while a given condition is truthy. The while loop iterates over a block of code if the test expression is true.
 
+__Syntax__ 
+
+```python
+while test_expression:
+Body
+of
+loop
+
+counter = 0
+while counter < 5:
+print(counter)
+counter += 1
+```
 
 ```python
 num = 1
@@ -339,8 +469,27 @@ while loops are for when you don’t know how many times you will need to iterat
 
 ___
 
+__Nested Loop__
+It is a loop inside the body of the outer loop.
+
+```python
+# Outer loop
+#loop to iterate from 2 to 10
+for i in range(2, 11):
+# Nested loop to iterate from 1 to 10
+for j in range(1, 11):
+# Print multiplication using f-string
+print(f"{i:2d} × {j:2d} = {i * j:2d}")
+print(f“ End of multiplication table of {i}\n")
+```
+
+
 __`break`__ & __`continue`__
 Like in JavaScript, the break statement in Python is used to exit for and while loops immediately.
+
+* The break statement exits the innermost enclosing of the for or while loop.
+* It terminates the nearest enclosing loop and skips the optional else block.
+* If a loop is terminated by a break, the loop variable retains its current value.
 
 In for and while loops, the continue statement will end the current iteration of a loop and continue to the next iteration as long as the condition of the loop is still truthy or there are still items to iterate through.
 
@@ -355,9 +504,58 @@ for thing in things:
         print("Nope. Burn it down, no more.")
         break
     print(f"There is a {thing} in the room.")
+
+    # Use of break statement inside the loop
+for i in "Hello string":
+if i == "l":
+break
+print(i)
+print("End of Loop")
 ```
 
 ---
+
+__Continue__
+
+* The continue statement skips the current iteration and proceeds with the next one.
+* It does not terminate the loop but moves control to the next iteration.
+* As a result, the optional else block of the loop still executes.
+
+```python
+# Use of continue statement inside the loop
+for i in "Hello string":
+if i == "l":
+continue
+print(i)
+print("End of Loop")
+```
+
+__loop else statement__
+The loop else statement does not execute if the loop terminates due to a break statement.
+
+```python
+numbers = [1, 2, 3, 4, 5, 6, 7]
+for num in numbers:
+if num == 6:
+print("Number found!")
+break
+else:
+print("Number not found!")
+```
+__While Else Statement__
+The loop else statement does not execute if the loop terminates due to a break statement.
+
+```python
+count = 0
+while count < 5:
+print("Count:", count)
+if count == 3:
+print("Count reached 3!")
+break
+count += 1
+else:
+print("Loop completed!")
+```
 
 ## `Truthy` & `Falsy`
 Truthy and falsy are conceptual and attempt to treat non-boolean expressions as booleans (true or false)

@@ -508,7 +508,163 @@ for idx, color in enumerate(colors):
     # 2 blue
 ```
 
+## __`Tuples`__
+A tuple is an <u>ordered</u>, <u>immutable</u> collection of elements.
+__
 
+__Use tuples when you need a read-only collection that should not change.__
+
+Tuples in Python are very similar to Python lists. 
+
+ * tuple can hold zero or more items. 
+ * Tuples can contain any data type 
+ * Tuples have a class (type) of tuple.
+
+__Syntax__
+
+Tuples are defined using parentheses () and can store multiple data types.
+
+```python
+colors = ('red', 'blue', 'green')
+
+my_tuple = (value1,
+value2, value3, .....)
+```
+
+1. The name of the tuple. This should be plural because it holds a collection of elements.
+2. Opening and closing parenthesis indicate a tuple. These are actually optional (except when
+   creating an empty tuple). However, using parenthesis is popular convention.
+4. The tuple’s items are placed inside the parenthesis, separated by a comma. When
+   initializing a tuple, you don’t have to include elements; use a set of empty parenthesis -
+   ().
+
+__If you need to create a 1-tuple (a tuple with one item), note that a comma is necessary:__
+   ```python
+   hello_tuple = ('Hello')
+# this will not create a tuple
+print(type(hello_tuple))
+# prints: <class 'str'>
+
+hello_tuple = ('Hello',)
+# or just the following (remember parenthesis are not required)
+hello_tuple = 'Hello',
+print(type(hello_tuple))
+# prints: <class 'tuple'>
+```
+Differences between tuples and lists:
+* tuples are immutable.
+* tuples can’t be changed after being created,
+* Because they are immutable, tuples can even be used as keys for dictionaries.
+* Tuples contain heterogeneous (different) data types and lists for homogeneous (similar)
+  data types.
+
+
+  __Creating Tuples__
+
+
+```python
+# Creating a tuple with different data types
+fruits = ("apple", "banana", "cherry")
+numbers = (1, 2, 3, 4)
+mixed = (10, "hello", True, 3.14)
+
+# Creating a tuple using the tuple() constructor
+tuple_from_list = tuple([5, 6, 7])
+print(fruits) # Output: ('apple', 'banana',
+'cherry')
+print(tuple_from_list) # Output: (5, 6, 7)
+
+```
+
+  __Accessing items__
+
+Since tuples are ordered, elements can be accessed using indexing and slicing, just like lists.
+
+
+```python
+animals = ("cat", "dog", "elephant", "lion")
+
+#Accessing elements using positive indexing
+print(animals[0]) # Output: cat
+print(animals[2]) # Output: elephant
+
+#Accessing elements using negative indexing
+print(animals[-1]) # Output: lion (last element)
+print(animals[-3]) # Output: dog
+```
+Although tuples can’t be modified like lists, we can retrieve their items in the same way using square brackets:
+
+```python
+colors = ('red', 'green', 'blue')
+print(colors[1])
+# prints: green
+```
+
+Sequences (lists, tuples, and strings) also have an index() method that returns the index of the first match:
+
+```python
+colors = ('red', 'green', 'blue')
+blue_idx = colors.index('blue')
+print(blue_idx)
+# prints: 2
+
+```
+
+__`Slicing`__
+
+
+```python
+animals = ("cat", "dog", "elephant", "lion")
+
+#Accessing elements using slicing
+print(animals[1:3]) # Output: ('dog', 'elephant')
+print(animals[:2]) # Output: ('cat', 'dog’)
+
+#Selects every second element
+print(animals[::2]) # Output: ('cat', 'elephant’)
+```
+
+__`Packing`__
+
+```python
+#Tuple unpacking
+person = ("John", 25, "Developer")
+name, age, job = person
+print(name) # Output: John
+print(age) # Output: 25
+print(job) # Output: Developer
+```
+
+__`Unpacking`__
+This performs multiple variable assignments in a single line of code:
+
+
+```python
+#Tuple packing
+person = ("John", 25, "Developer")
+print(person) # Output: ('John', 25, 'Developer')
+
+colors = ('red', 'green', 'blue')
+r, g, b = colors
+print(r, g, b)
+# prints: red green blue
+
+```
+It requires comma-separated variables on the left side of the assignment operator and a sequence of values on the right. Functions and methods often return tuples in Python, which is often the preferred method of accessing them.
+
+__`Iteration`__
+
+__`for` Loops__
+
+```python
+
+for idx, color in enumerate(colors):
+    print(idx, color)
+    # prints:
+    # 0 red
+    # 1 green
+    # 2 blue
+```
 
 ## __`Sets`__
 
@@ -612,5 +768,121 @@ print(diff_set)
 # Output: {1, 2}
 ```
 
+### __`List Comprehension`__
+Provide a concise way to create and work with lists. 
+__
+
+A list comprehension is basically a modified for in loop within square brackets, which returns a new list.
+__Syntax__
+
+```python
+
+# [<expression> for <item> in <list>]
+# This reads as: I want <expression> for each <item> in <list>
+
+squares = [x**2 for x in range(1, 6)]
+print(squares)
+# Output: [1, 4, 9, 16, 25]
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+evens = [x for x in numbers if x % 2 == 0]
+print(evens)
+# Output: [2, 4, 6, 8]
+```
+
+__Dictionary Comprehension__
+allows you to create dictionaries dynamically with a concise syntax.
+
+```python
+new_dict = {key_expression: value_expression for
+item in iterable if condition}
+
+#Creating a dictionary with numbers and their squares
+squares_dict = {x: x**2 for x in range(1, 6)}
+print(squares_dict)
+# Output: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+#Filtering a dictionary to keep only even values
+num_dict = {x: x**2 for x in range(10) if x % 2 == 0}
+print(num_dict)
+# Output: {0: 0, 2: 4, 4: 16, 6: 36, 8: 64}
+```
+__Set Comprehension__
+They allow you to generate unique, unordered collections dynamically.
+
+```python
+#Creating a set of squares
+squares_set = {x**2 for x in range(1, 6)}
+print(squares_set)
+# Output: {1, 4, 9, 16, 25}
+
+#Removing duplicates from a list using set comprehension
+numbers = [1, 2, 2, 3, 4, 4, 5, 5, 6]
+unique_numbers = {x for x in numbers}
+print(unique_numbers)
+# Output: {1, 2, 3, 4, 5, 6}
+```
 
 
+
+__Filtering the items__
+for in loop to map and filter nums:
+```python
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+even_squares = []
+
+# we want 'n * n' for each 'n' in nums  if 'n * n' is even
+for n in nums:
+    square = n * n 
+    if square % 2 == 0:
+        even_squares.append(square)
+
+print(even_squares)
+# prints: [4, 16, 36, 64, 100]
+```
+list comprehensions reduce the above from:
+
+```python
+even_squares = []
+for n in nums:
+    square = n * n 
+    if square % 2 == 0:
+        even_squares.append(square)
+
+```
+
+To this one-liner:
+
+```python
+
+even_squares = [n * n for n in nums if (n * n) % 2 == 0]
+
+```
+
+__Numerical Example__
+Square all of the numbers in a list and put them into a new list:
+
+```python
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+squares = []
+
+# we want 'n * n' for each 'n' in nums 
+for n in nums:
+    squares.append(n * n)
+
+print(squares)
+# prints [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
+```
+
+A list comprehension can reduce this code:
+```python
+squares = []
+for n in nums:
+    squares.append(n * n)
+
+```
+To this:
+```python
+squares = [n * n for n in nums]
+
+```
