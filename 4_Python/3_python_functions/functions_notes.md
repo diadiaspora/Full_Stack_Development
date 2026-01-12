@@ -221,23 +221,6 @@ __Unlike JavaScript, Python requires that you provide the correct number of argu
 ### Accepting a variable number of arguments
 ---
 
-__Rest parameters__  allow a function to accept any number of arguments:
-
-```python
-const sum = (...nums) => {
-  total = 0;
-
-  nums.forEach((num) => {
-    total += num;
-  });
-
-  return total;
-};
-
-console.log(sum(1, 5, 10));
-// prints: 16
-```
-
 ### Python’s *args syntax
 ---
 
