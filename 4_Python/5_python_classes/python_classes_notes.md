@@ -211,3 +211,42 @@ Just because we don’t call them directly doesn’t mean we can’t override th
 is a principle in OOP that is literally defined as “having many forms”. In OOP this means that instantiated objects are treated as instances of a class, rather than the actual class. They can be modified without also modifying the class.
 
 For example, our Dog class modified the default behavior of the __str__() method, but that default behavior still exists. If we created another class, the behavior of that class’ __str__() method would be the default behavior.
+
+### Class vs. instance members
+attributes and methods (members) are categorized into two types based on whether they belong to instances of the class or the class itself.
+___
+
+* Instance Attributes and Methods: These are linked to individual instances of a class. Each object created from the class has its own copy of instance attributes. For example, in a Dog class, each dog object might have its own name and age attributes.
+
+* Class Attributes and Methods: These belong to the class as a whole, not to any individual instance. All instances of the class share the same class attributes. This means that if one instance changes a class attribute, the change is reflected across all other instances. These are intended to be accessed on the class only, not an instance (although accessing them on the instance is technically possible).
+
+```python
+class Dog():
+    def __init__(self, name, age=0):
+        self.name = name
+        self.age = age
+
+    def bark(self):
+        print(f'{self.name} says woof!')
+
+    def __str__(self):
+        return f'The dog named {self.name} is {self.age} years old.'
+        
+class Dog():
+    next_id = 1
+
+    def __init__(self, name, age=0):
+        self.name = name
+        self.age = age
+        # assign the current value of `next_id` to this instance
+        self.id = Dog.next_id
+        # increment the class attribute `next_id` so the next dog gets a new ID
+        Dog.next_id += 1
+
+    def bark(self):
+        print(f'{self.name} says woof!')
+
+    def __str__(self):
+        return f'Dog #{self.id} named {self.name} is {self.age} years old.'
+
+```
