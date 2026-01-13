@@ -121,6 +121,12 @@ ruby = Dog('Ruby', 3)
 print(ruby)
 # prints: something like <__main__.Dog object at 0x1031c0f90>
 
+* Python falls back to the default object.__str__()
+
+* That default shows the object’s type and memory address
+
+* Not useful to humans
+
 # print the `name` and `age` attributes of the ruby object
 print(ruby.name, ruby.age)
 # prints: Ruby 3
@@ -144,6 +150,7 @@ print(liam.name, liam.age)
 Instantiating objects means creating instances of a class. To instantiate a class, call the class like a function, passing arguments as defined in the __init__ method.
 
 ### __`Overriding methods`__
+Overriding means: A subclass or user-defined class provides its own version of a method that already exists.
 ___
 
 Previously, when we used print(ruby) to print the ruby object, we got an unfriendly output similar to <__main__.Dog object at 0x1031c0f90>.
@@ -200,6 +207,7 @@ These methods exist on our ruby object by default, but they won’t be used dire
 
 Just because we don’t call them directly doesn’t mean we can’t override their behavior though. Overriding the __str__() method is an example of polymorphism.
 
-📚 Polymorphism is a principle in OOP that is literally defined as “having many forms”. In OOP this means that instantiated objects are treated as instances of a class, rather than the actual class. They can be modified without also modifying the class.
+### __`Polymorphism`__ 
+is a principle in OOP that is literally defined as “having many forms”. In OOP this means that instantiated objects are treated as instances of a class, rather than the actual class. They can be modified without also modifying the class.
 
 For example, our Dog class modified the default behavior of the __str__() method, but that default behavior still exists. If we created another class, the behavior of that class’ __str__() method would be the default behavior.
