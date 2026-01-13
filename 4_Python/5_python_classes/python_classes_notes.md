@@ -250,3 +250,7 @@ class Dog():
         return f'Dog #{self.id} named {self.name} is {self.age} years old.'
 
 ```
+
+### __`Inheritance`__
+ feature in object-oriented programming that allows a class (known as a subclass) to inherit attributes and methods from another class (called a superclass). This enables the subclass to reuse code from the superclass without having to rewrite it.
+___
