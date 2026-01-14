@@ -531,3 +531,39 @@ object and produces a single cumulative value.
 
 
 The `map` and `filter` functions are basic built-in functions, whereas the `reduce` function is part of a module named _functools.
+
+__`enuumerate`__
+
+a built-in Python function that takes an iterable (such as a list or tuple) and returns an iterator that produces pairs of (index, item), where:
+
+* index is a running counter (starting at 0 by default)
+
+* item is the value from the iterable
+
+* The starting index can be changed using the start parameter
+
+```python
+def display_items(*args, **kwargs):
+    """Function to accept and display arbitrary positional and keyword arguments."""
+
+    # Display positional arguments
+    print("Positional Arguments:")
+    for index, item in enumerate(args, start=1):
+        print(f"  Item {index}: {item}")
+
+    # Display keyword arguments
+    print("\nKeyword Arguments:")
+    for key, value in kwargs.items():
+        print(f"  {key}: {value}")
+
+    result_1 = display_items("Apple", "Banana", "Cherry", name="Alice", age=30, city="New York")
+```
+
+```python
+def list_items_with_numbers(items):
+    result = []
+    for index, item in enumerate(items, start=1):
+        result.append(f"{index}. {item}")
+    return result
+
+```

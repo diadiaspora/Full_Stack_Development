@@ -1,5 +1,12 @@
 # `Data Structures`
 
+
+__Lists:__ Ordered and mutable []
+
+__Tuples:__ Ordered and immutable ()
+
+__Sets:__ Unordered and mutable and contain unique elements. Duplicates are automatically removed.{}
+
 ## __`Dictionaries`__
 A dictionary is a __<u>mutable</u>__, __<u>unordered</u>__ data structure that stores a collection of items(key-value pairs), allowing efficient data retrieval and modification. __Similar to objects in JavaScript.__
 ___
@@ -262,6 +269,9 @@ print(student)
 __`clear`__
 __Removes all key-value pairs, making the dictionary empty__
 
+__`get`__
+__accesses a key that may or may not exist__
+
 ```python
 student = {"name": "Alice", "age": 22, "course": "Computer Science"}
 
@@ -342,13 +352,41 @@ print(colors[0])
 # prints: red
 
 ```
+
+__`Positive Indexing`__
 Positive indexing happens from left to right, where the index starts at 0 for the first element.
+
 ```python
 #Fetching list items from the fruits list using positive
 index
 fruits = ["apple", "banana", "cherry", "mango"]
 print(fruits[0]) # Output: apple
 print(fruits[2]) # Output: cherry
+```
+
+```python
+my_list = [25, "Hello", 3.14, "Python", 100, 7.89, "AI", 42, "Data", 2.718]
+
+positive_indexing = [my_list[0], my_list[3], my_list[6]]
+print(positive_indexing)
+
+negative_indexing = [my_list[-1], my_list[-4], my_list[-7]]
+print(negative_indexing)
+
+
+# Slicing
+
+sublist = my_list[2:7]
+print(sublist)
+
+# Append
+my_list = [25, "Hello", 3.14, "Python", 100, 7.89, "AI", 42, "Data", 2.718]
+print(my_list)
+my_list.append("New Element")
+print(my_list)
+my_list.remove(100)
+print(my_list)
+
 ```
 
 Unlike in JavaScript, we can use negative integers to index from the end of a list:
@@ -560,6 +598,14 @@ Differences between tuples and lists:
 
 
   __Creating Tuples__
+Creating a tuple means any way a tuple comes into existence:
+
+```python
+(1, 2, 3)          # literal
+tuple([1, 2, 3])   # constructor
+1, 2, 3            # packing
+()                 # empty tuple
+```
 
 
 ```python
@@ -573,6 +619,23 @@ tuple_from_list = tuple([5, 6, 7])
 print(fruits) # Output: ('apple', 'banana',
 'cherry')
 print(tuple_from_list) # Output: (5, 6, 7)
+
+```
+
+```python
+my_tuple = (10, "Python", 3.14, "AI", 42, "Data", 7.89, "Machine Learning")
+print(my_tuple)
+
+positive_indexing = my_tuple[1]  # "Python"
+print(positive_indexing)
+negative_indexing = my_tuple[-2]  # 7.89
+print(negative_indexing)
+
+# Slicing
+sub_tuple = my_tuple[2:6]
+print(sub_tuple)
+
+# Tuples are immutable
 
 ```
 
@@ -650,6 +713,24 @@ print(r, g, b)
 # prints: red green blue
 
 ```
+
+__`count()`__
+Count occurrences 
+
+```python
+my_tuple = (10, "Python", 3.14, "AI", 42, "Data", 7.89, "Machine Learning")
+element_count = my_tuple.count("Python")
+print(element_count)
+```
+__`index()`__
+Index of element
+
+```python
+my_tuple = (10, "Python", 3.14, "AI", 42, "Data", 7.89, "Machine Learning")
+element_index = my_tuple.index(42) 
+print(element_index)
+```
+
 It requires comma-separated variables on the left side of the assignment operator and a sequence of values on the right. Functions and methods often return tuples in Python, which is often the preferred method of accessing them.
 
 __`Iteration`__
