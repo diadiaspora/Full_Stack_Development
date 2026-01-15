@@ -343,10 +343,184 @@ const add = (numA, numB) => {
 
 ```
 
+# __`Function declarations vs Function expressions vs Arrow Functions`__
+This difference is hoisting. 
+___
+
+1. What JavaScript does before it runs your code
+
+    Before JavaScript executes your program, it does a setup phase (often called the creation phase).
+
+    During this phase:
+
+    __JavaScript scans the entire file.__
+
+    Registers declarations in memory
+
+    How it registers them depends on the syntax.
+
+2. __Function declarations__ are hoisted with their body
+
+Example
+```javascript
+
+sayHello();
+
+function sayHello() {
+  console.log("Hello");
+}
+```
+
+
+JavaScript does this internally:
+
+```javscript
+
+function sayHello() {
+  console.log("Hello");
+}
+
+```
+
+The entire function (name + body) is placed in memory __before any code runs.__
+
+So when execution reaches:
+
+```javascript
+sayHello();
+```
+
+The function already exists.
+
+3. __Function expressions are NOT hoisted__ the same way
+
+Example (this fails)
+
+```javscript
+sayHello();
+
+const sayHello = function () {
+  console.log("Hello");
+};
+```
+
+What happens internally
+
+During setup:
+
+* JavaScript sees const sayHello
+
+* It reserves the name sayHello
+
+* But it does not assign the function yet
+
+So at runtime:
+
+* sayHello exists
+
+* But it is uninitialized
+
+__Calling it throws an error__
+
+4. __Arrow functions__ behave the same as function expressions
+
+```javascript
+sayHello();
+
+const sayHello = () => {
+  console.log("Hello");
+};
+
+```
+❌ Same error, same reason.
+
+5. Visual comparison (memory setup)
+
+
+__Function declaration__
+
+```javscript
+function greet() {}
+```
+
+Setup phase:
+
+greet → function reference
+
+__Function expression__
+
+```javscript
+const greet = () => {}
+```
+
+Setup phase:
+
+greet → uninitialized
+
+
+Assignment happens only when execution reaches that line.
+
+6. Why var behaves differently (and why it’s bad)
+
+```javscript
+sayHello();
+
+var sayHello = function () {
+  console.log("Hello");
+};
+```
+
+This gives:
+
+TypeError: sayHello is not a function
+
+
+Because:
+
+var is hoisted as undefined
+
+You’re trying to call undefined
+
+This is one reason var is discouraged.
+
+7. Rule you can memorize
+
+Function declarations are hoisted with their body.
+Function expressions are hoisted without their value.
+
+8. Why JavaScript was designed this way
+
+Function declarations come from older JS
+
+They support flexible program structure
+
+Function expressions behave like variables
+
+Arrow functions follow variable rules
+
+9. When to use each
+Need	Use
+Call function anywhere	Function declaration
+Assign function to variable	Function expression
+Pass functions as values	Function expression
+Modern React code	Arrow functions
+One-sentence takeaway
+
+Function declarations are fully available before execution; function expressions only exist after their assignment runs.
+
+If you want, I can also:
+
+Diagram this visually
+
+Show how hoisting affects variables
+
+Explain why React avoids function declarations
+
 ## Advanced Arrow Functions
 ___
 
 ### Implicit Return
+Implicit return is best when the function is simple, predictable, and purely about returning a value.
 ___
 
 Arrow functions composed of a single expression (something resolves to a single value) will automatically evaluate and return that expression without requiring us to write the return keyword. Just leave off the curly braces, and the rest happens automatically.
@@ -359,6 +533,7 @@ console.log(multiply(3, 4));
 ```
 
 ### Single Parameters
+When working with a single parameter, we can omit the parentheses entirely:
 ___
 
 ```javascript
@@ -397,7 +572,26 @@ sayHi('Joe');
 // Prints: 'Hi Joe!'
 ```
 
+### Default parameters
+if your function requires certain arguments, and you want to provide a default value for the parameter if an argument is not supplied when the function is invoked.
+___
+
+By specifying a default, name will always equal 'friend' unless an argument is supplied! This overrides the default behavior of name being undefined unless an argument is passed.
+
+```javascript
+
+const sayHi = (name = 'friend') => {
+  console.log(`Hi ${name}!`);
+}
+
+sayHi();
+// Prints: 'Hi friend!'
+
+
+```
+
 ### Hoisting
+function declarations are hoisted to the top of their scope and may be invoked even if defined later in the code.
 ___
 
 When your code is run, JavaScript takes a first pass at it to identify all the variables and function declarations. Variables are set up but not assigned their values during this first pass, and entire function declarations are moved to the top. This is referred to as hoisting.
@@ -431,6 +625,7 @@ console.log(add(5, 2));
 ```
 
 ### Rest Parameter
+[rest parameter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
 ___
 
 The rest parameter syntax allows a function to accept any number of arguments as a named array. The syntax is identical to the spread operator. While the spread operator expands an array into its elements, the rest syntax does the opposite, taking multiple arguments and condensing them into a single array.
@@ -449,6 +644,75 @@ function calculateAverage(...scores){
 
 calculateAverage(1, 2, 3, 4, 5, 6, 7, 8, 9, 10); // returns 5.5
 ```
+The loop starts i at 0, keeps running while i is less than the number of scores, and each time it adds the current score (scores[i]) to total, then moves to the next score by increasing i by 1.
+
+__1. What ...scores means (rest parameter)__
+
+```javascript
+function calculateAverage(...scores) {
+```
+
+This is the rest parameter.
+
+ * It collects all arguments passed to the function.
+
+ * It puts them into a single array called scores.
+
+So this call:
+
+```javascript
+calculateAverage(1, 2, 3, 4, 5);
+
+```
+Becomes:
+
+```javascript
+scores = [1, 2, 3, 4, 5];
+
+```
+
+allowing the function to accept any number of arguments.
+
+__2. Initializing a total__
+
+```javascript
+
+let total = 0;
+
+
+```
+0 is the base starting number. 
+
+this sets up an accumulator to sum all values.
+
+An accumulator is a variable that:
+
+* Starts with an initial value
+
+* Gets updated repeatedly
+
+* Accumulates (adds up) results over time
+
+This means:
+
+* total starts at 0
+
+* Each loop iteration adds something to it
+
+* By the end, it holds the sum of all values
+
+__3. Looping over the scores array__
+
+```javascript
+for (let i = 0; i < scores.length; i++) {
+
+```
+i starts at 0
+
+Loop runs once per score
+
+scores.length is the number of arguments passed
+
 
 One way to stop our code from affecting the global scope is by using something called an Immediately Invoked Function Expression, or IIFE (pronounced “iffy”). This is a special kind of function that runs as soon as it is defined.
 
@@ -464,6 +728,52 @@ One way to stop our code from affecting the global scope is by using something c
 The function is wrapped in parentheses to turn it into a complete expression. This is called a grouping operator.
 
 After that, the final () at the end immediately calls the function. This means the code inside the function runs right away, without waiting for us to call it later.
+
+### Spread Operator
+
+---
+```javascript
+const numbers = [1, 2, 3];
+const copy = [...numbers];
+
+console.log(copy); // [1, 2, 3]
+
+
+// combining arrays
+const a = [1, 2];
+const b = [3, 4];
+
+const combined = [...a, ...b];
+console.log(combined); // [1, 2, 3, 4]
+
+//adding items 
+const arr = [2, 3];
+const newArr = [1, ...arr, 4];
+
+console.log(newArr); // [1, 2, 3, 4]
+
+// copying objects
+
+const user = { name: "Dia", age: 30 };
+const copy = { ...user };
+
+console.log(copy); // { name: "Dia", age: 30 }
+
+// merging objects
+const defaults = { a: 1, b: 2 };
+const overrides = { b: 3, c: 4 };
+
+const merged = { ...defaults, ...overrides };
+console.log(merged); // { a: 1, b: 3, c: 4 }
+
+// spread with strings
+const letters = [..."hello"];
+console.log(letters); // ['h', 'e', 'l', 'l', 'o']
+
+```
+
+
+
 
 ### Nesting Functions
 ___

@@ -183,6 +183,293 @@ if (val === 1) {
 
 ```
 
+### __`Nested Branching Statements`__
+ if statements placed inside other if or else blocks, allowing for more complex decision-making.
+___
+
+ ```javascript
+const dayOfTheWeek = 'Friday';
+const isAfternoon = true;
+
+if (dayOfTheWeek === 'Friday') {
+  if (isAfternoon) {
+    console.log('Almost the weekend!');
+  } else {
+    console.log('Happy Friday morning!');
+  }
+} else {
+  console.log("It's not Friday.");
+}
+
+ ```
+
+### __`Ternerary Operator`__
+when you need to carry out one of two actions depending on a condition. 
+___
+
+It __is an if/else statement__ but,
+
+<u>if/else:>/u>
+
+```javascript
+
+const num = 100;
+
+if (num > 5) {
+  console.log('num is larger than 5');
+} else {
+  console.log('num is 5 or less');
+}
+
+```
+
+* Controls program flow
+
+* Can execute multiple statements
+
+* More readable for complex logic
+
+<u>Ternirary operator:</u>
+
+```javascript
+num > 5 ? console.log('num is larger than 5') : console.log('num is 5 or less');
+```
+
+* Produces a value
+
+* Must return one of two expressions
+
+* Best for simple, direct choices
+
+__Ternirary Syntax__
+
+* num > 5 is our condition.
+* The condition is followed by a ?.
+* An expression to execute if the condition is true or truthy.
+* A colon :.
+* An expression to execute if the condition is false or falsy.
+* 
+```javascript
+let message = num > 5 ? 'num is larger than 5' : 'num is 5 or less';
+
+console.log(message);
+
+/*
+BTW this is not a function. this is top level code, executed immedietly when the file runs. 
+
+There is no function wrapper, no parameters, no return value.
+
+for it to be a function: 
+
+function checkNumber(num) {
+  if (num > 5) {
+    console.log('num is larger than 5');
+  } else {
+    console.log('num is 5 or less');
+  }
+}
+
+function expression:
+
+const checkNumber = function (num) {
+  if (num > 5) {
+    console.log('num is larger than 5');
+  } else {
+    console.log('num is 5 or less');
+  }
+};
+
+Arrow function:
+
+const checkNumber = (num) => {
+  if (num > 5) {
+    console.log('num is larger than 5');
+  } else {
+    console.log('num is 5 or less');
+  }
+};
+
+
+*\
+```
+vs
+
+```javascript
+let message;
+
+if (num > 5) {
+  message = 'num is larger than 5';
+} else {
+  message = 'num is 5 or less';
+}
+
+console.log(message)
+```
+
+### __`Switch Statements`__
+[switch statements](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)
+
+if you have more than three code paths, and your conditionals always check the same variable.
+___
+
+if..else..if..else:
+
+```javascript
+const seasonCheck = 'winter';
+
+if (seasonCheck === 'summer') {
+  console.log("It's summer!");
+} else if (seasonCheck === 'fall') {
+  console.log("It's fall now!");
+} else if (seasonCheck === 'winter') {
+  console.log('Brrr!');
+} else if (seasonCheck === 'spring') {
+  console.log("It's spring!");
+} else {
+  console.log('Invalid season');
+}
+
+```
+
+__`switch`__
+
+```javascript
+const seasonCheck = 'winter';
+
+switch (seasonCheck) {
+  case 'summer':
+    console.log("It's summer!");
+    break;
+  case 'fall':
+    console.log("It's fall now!");
+    break;
+  case 'winter':
+    console.log('Brrr!');
+    break;
+  case 'spring':
+    console.log("It's spring!");
+    break;
+  default:
+    console.log('Invalid season');
+}
+
+```
+
+Fall-through is when a switch statement continues executing the next case because nothing stopped it.
+
+```javascript
+switch (seasonCheck) {
+  case 'summer':
+    console.log("It's summer!");
+    break;
+  case 'autumn':
+  case 'fall':
+    console.log("It's fall now!");
+    break;
+  case 'winter':
+    console.log('Brrr!');
+    break;
+  case 'spring':
+    console.log("It's spring!");
+    break;
+  default:
+    console.log('Invalid season');
+}
+
+```
+
+### __`while`__
+
+loop when the number of iterations is unknown.
+___
+
+for loop
+
+* Initialization, condition, and update are in one place
+
+* Very readable for counting
+
+Best for:
+
+ * Arrays
+
+ * Index-based iteration
+
+ * Fixed or predictable loops
+    
+
+```javascript
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+
+```
+
+while loop:
+
+* Only the condition is in the loop header
+
+* Setup and update happen outside / inside
+
+    Best for:
+
+    * Unknown number of iterations
+
+    * Waiting for a state to change
+
+    * Event-driven or condition-driven loops
+ 
+      
+```javascript
+let i = 0;
+
+while (i < 5) {
+  console.log(i);
+  i++;
+}
+
+```
+Bad:
+
+```javascript
+let number = 1;
+
+while (number <= 10) {
+  console.log(number);
+}
+
+```
+Nothing inside the loop changes number, so the condition never becomes false.
+
+1. number starts at 1
+
+2. Condition: number <= 10 → true
+
+3. console.log(number) runs
+
+4. Loop goes back to the top
+
+5. number is still 1
+
+6. Condition is still true
+
+7. Repeat forever
+
+__`do while`__
+do…while loops are very similar to while loops, except they force the code block to execute at least once, regardless of the condition being truthy or falsy.
+___
+
+The code inside the do...while loop will execute once, even though 120 is not less than or equal to 10.
+```javascript
+let num = 120;
+
+do {
+  console.log(`${num} is even`);
+  num += 2;
+} while (num <= 10);
+
+```
+
 
 ## `Looping`
  Looping repeats a set of actions. Typically code blocks that are repeated  either until a certain condition is no longer met (`while` the condition is `true`) or a specific number of times (`for` a certain number of iterations). 
@@ -276,3 +563,39 @@ __Falsy__
 __Truthy__
 
 Everything else
+
+### __`Single line if`__
+for a simple condition that requires only a single action, write if statements in a more concise way. Best used for simple operations
+___
+Only one statement: The single-line if only allows for one statement to be executed.
+
+
+```javascript
+if (val === 1) console.log('This code will run only if val equals 1');
+
+```
+Curly braces are omitted.
+
+As opposed to:
+
+```javascript
+if (val === 1) {
+  console.log('This code will run only if val equals 1');
+}
+```
+
+__`Loose Equality`__
+___
+
+Loose Equality:
+
+```javascript
+3 == '3'  // true
+```
+
+Strict Equality:
+
+```javascript
+3 === 3
+
+```
