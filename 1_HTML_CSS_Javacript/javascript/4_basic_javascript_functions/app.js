@@ -1,4 +1,4 @@
-
+console.log("Exercise 1:");
 const maxOfTwoNumbers = (x, y) => {
   if (x >= y) {
     return x;
@@ -7,11 +7,16 @@ const maxOfTwoNumbers = (x, y) => {
   }
 }
 
+
+
 console.log('Exercise 1 Result:', maxOfTwoNumbers(3, 9));
 
+console.log('');
+console.log('');
+console.log('');
+console.log('');
 
-
-
+console.log("Exercise 2:");
 
 function isAdultTwo (age){
     if (age >= 18) {
@@ -47,6 +52,12 @@ function calculateAverage(...scores){
 console.log(calculateAverage(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)); // returns 5.5
 
 // Function Declaration:
+
+console.log('');
+console.log('');
+console.log('');
+console.log('');
+console.log("Exercise 3:");
 
 function isChar(char){
     if (char === "a" || "e" || "i" || "o" || "u")
@@ -141,7 +152,189 @@ const isCharSomeArrow = (char) => {
 console.log('Arrow Expression using some:', isCharSomeExpression("a"));
 console.log("_____________________________________")
 console.log("_____________________________________")
+
+console.log('');
+console.log('');
+console.log('');
+console.log('');
 console.log("Exercise 4:");
+
+function generateEmail(name, domain) {
+    return name + "@" + domain
+}
+console.log('Exercise 4 Result:', generateEmail("johnsmith", "example.com"));
+
+const generateEmailExpression = function(name, domain) {
+    return name + "@" + domain
+}
+
+console.log('Exercise 4 Function Expression:', generateEmailExpression("jerry", "gmail.com"));
+
+const generateEmailArrow = function(name, domain) {
+    return name + "@" + domain
+}
+
+console.log('Exercise 4 Arrow Function :', generateEmailArrow("jaxson", "yahoo.com"));
+console.log('');
+console.log('');
+console.log('');
+console.log('');
+console.log("Exercise 5:");
+
+
+
+function greetUser2(name, time) {
+    return `Good ${time} , ${name}!`
+}
+
+console.log('Exercise 5 Result:', greetUser2("Sam", "morning"));
+
+console.log('');
+console.log('');
+console.log('');
+console.log('');
+
+console.log("Exercise 6:");
+
+function maxOfThree(num1, num2, num3) {
+    
+    return Math.max(num1, num2, num3);
+}
+
+console.log('Exercise 6 Result:', maxOfThree(5, 10, 8));
+
+function maxOfThree3(num1, num2, num3) {
+
+    const numbers = [num1, num2, num3];
+    return Math.max(...numbers);
+}
+
+console.log('Exercise 6 Result:', maxOfThree3(5, 10, 8));
+
+// function maxOfThreeLoop(num1, num2, num3) {
+
+//     const numbers = [num1, num2, num3];
+//     let largest = numbers[0];
+    
+//     for (let x = 0, if x < numbers.length, x++){
+        
+//     }
+    
+// }
+
+// console.log('Exercise 6 Result:', maxOfThreeLoop(5, 10, 8));
+console.log('');
+console.log('');
+console.log('');
+console.log('');
+
+console.log("Exercise 7:");
+
+function calculateTip(bill, tip){
+    return (bill) + bill * tip/100
+}
+console.log('Exercise 7 Result:', calculateTip(50, 20));
+
+console.log('');
+console.log('');
+console.log('');
+console.log('');
+console.log("Exercise 8:");
+
+function convertTemperature(temp, scale){
+    scale = scale.toUpperCase();
+    
+    if (scale === "C") {
+        return (temp * 9 / 5) + 32
+    } else {
+        return (temp - 32) * 5 / 9;
+    }
+}
+
+console.log('Exercise 8 Result:', convertTemperature(32, "c"));
+
+console.log('');
+console.log('');
+console.log('');
+console.log('');
+
+console.log("Exercise 9:");
+
+function basicCalculator(num1, num2, oper) {
+    switch (oper) {
+     case 'add':
+        return num1 + num2
+        break;
+     case 'subtract':
+        return num1 - num2
+        break;
+     case 'multiply':
+        return num1 * num2
+        break;
+     case 'divide':
+        return num1 / num2
+        break;
+    }
+    
+}
+
+console.log('Exercise 9 Result:', basicCalculator(10, 5, "subtract"));
+
+console.log('');
+console.log('');
+console.log('');
+console.log('');
+
+console.log("Exercise 10:");
+
+function calculateGrade(score) {
+    
+    if (score >= 90) {
+    return "A";
+} else if (score >= 80) {
+    return "B";
+} else if (score >= 70) {
+    return "C";
+} else if (score >= 60) {
+    return "D";
+} else {
+    return "F";
+}
+}
+
+console.log('Exercise 10 Result:', calculateGrade(85));
+
+console.log('');
+console.log('');
+console.log('');
+console.log('');
+
+console.log("Exercise 11:");
+
+function createUsername(first, last){
+    start = first.slice(0, 3)
+    end = last.slice(0,3)
+    num = first.length + last.length
+
+    return start + end + num
+}
+
+console.log('Exercise 11 Result:', createUsername("Samantha", "Green"));
+
+console.log('');
+console.log('');
+console.log('');
+console.log('');
+
+console.log("Exercise 12:");
+
+function numArgs(...tings) {
+    array = (tings)
+    return array.length
+    
+}
+
+console.log('Exercise 12 Result:', numArgs(1, 2, 3, 4));
 
 /*
 Function Expression

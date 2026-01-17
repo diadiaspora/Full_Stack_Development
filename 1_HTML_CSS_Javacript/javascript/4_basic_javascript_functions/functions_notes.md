@@ -796,3 +796,25 @@ const toTitleCase = (string) =>{
 toTitleCase(title); // This Is The Title Of My Cool Book
 
 ```
+
+## Ternirary
+___
+
+They’re not functions — they’re an expression that works like a compact if / else.
+
+__`Syntax`__
+
+condition ? valueIfTrue : valueIfFalse
+
+```javascript
+let result;
+
+if (age >= 18) {
+  result = "adult";
+} else {
+  result = "minor";
+}
+
+let result = age >= 18 ? "adult" : "minor";
+
+```
