@@ -145,13 +145,77 @@ console.log('');
 console.log("\x1b[1m%s\x1b[0m","Exercise: 4");
 
 function generateEmail(name, domain) {
+    return name + "@" + domain
+}
+
+console.log('Exercise 4 Result:', generateEmail("johnsmith", "example.com"));
+
+const generateEmail_2 = function(name, domain) {
+
+    return `${name}@${domain}`
+}
+
+console.log('Exercise 4 Result:', generateEmail_2("johnsmith", "example.com"));
+
+const generateEmail_3 = (name, domain) => {
+        return name + "@" + domain
+}
+
+console.log('Exercise 4 Result:', generateEmail_3("johnsmith", "example.com"));
+
+console.log("\x1b[1m%s\x1b[0m","Exercise: 5");
+
+function greetUser(name, time){
+    
+    return `Good ${time}, ${name}`
+}
+
+console.log('Exercise 5 Result:', greetUser("Sam", "morning"));
+
+const greetUser_2 = function(name, time){
+    return "Good " + time + "," + name + "!"
+}
+console.log('Exercise 5 Result:', greetUser_2("Sam", "morning"));
+
+const greetUser_3 = (name, time) => {
+    return `Good ${time}, ${name}`
+}
+
+console.log('Exercise 5 Result:', greetUser_3("Sam", "morning"));
+
+console.log("\x1b[1m%s\x1b[0m","Exercise: 6");
+
+function maxOfThree(num1, num2, num3) {
+    return Math.max(num1, num2, num3)
+}
+
+console.log('Exercise 6 Result:', maxOfThree(5, 10, 8));
+
+const maxOfThree_2 = function(num1, num2, num3){
     
 }
 
-const generateEmail = function(name, domain) {
+const maxOfThree_3 = (num1, num2, num3) => {
     
 }
 
-const generateEmail = (name, domain) => {
+console.log("\x1b[1m%s\x1b[0m","Exercise: 7");
+
+function calculateTip(bill, tip){
+    tip_amount = bill*(tip/100)
+    return tip_amount
+}
+
+console.log('Exercise 7 Result:', calculateTip(50, 20));
+
+const calculateTip_2 = function(bill, tip) {
     
 }
+
+const calculateTip_3 = (bill, tip) => {
+    
+}
+
+console.log("\x1b[1m%s\x1b[0m","Exercise: 8");
+
+console.log("\x1b[1m%s\x1b[0m","Exercise: 9");
