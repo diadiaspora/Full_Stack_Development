@@ -257,4 +257,67 @@ Get Out
 Coco
 ```
 
+Using named functions with __`forEach()`__
 
+Most of the time, you’ll provide an anonymous callback function to the forEach() method. However, you can also provide a named function. This can be useful when carrying the same generic action on multiple arrays.
+
+```javascript
+const logElements = (element) => {
+  console.log(element);
+};
+
+movies.forEach(logElements);
+books.forEach(logElements);
+
+```
+__`forEach()`__ and function declarations
+
+
+### __`join()`__
+
+combines all of the string elements in an array and returns a single string.
+___
+
+```javascript
+// as a reminder, movies is ['Barbie', 'Arrival', 'Get Out', 'Coco']
+let movieString = movies.join();
+// movieString is 'Barbie,Arrival,Get Out,Coco'
+
+movieString = movies.join(' -- ');
+// movieString is 'Barbie -- Arrival -- Get Out -- Coco'
+
+```
+
+### __`at()`__
+___
+JavaScript does not support negative indexing using square bracket
+
+ `at()` method directly accessws elements by their index and accepts negative indexes. 
+
+ ```javascript
+// movies is ['Barbie', 'Arrival', 'Get Out', 'Coco']
+const lastMovieAt = movies.at(-1);  
+// lastMovieAt is 'Coco'
+
+ ```
+
+ ### __`unshift()`__
+
+ add one or multiple items at the start of the array.
+
+ ```javascript
+ movies.unshift('Dune', 'John Wick');
+// movies is ['Dune', 'John Wick', 'Barbie', 'Arrival', 'Get Out', 'Coco']
+
+ ```
+
+ ### __`shift()`__
+remove from the front of an array with shift():
+shift() removes only one element at a time and don’t take any arguments. These methods both return the element that was removed from the array:
+ ```javascript
+ movies.shift();
+// movies is ['John Wick', 'Barbie', 'Arrival', 'Get Out', 'Coco']
+
+ ```
+
+ push(), pop(), unshift(), and shift()
