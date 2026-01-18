@@ -305,4 +305,197 @@ console.log(music.currentPlaylist[music.trackIdx].artist); // 'Ryan Gosling'
 
 ```
 
+__`this`__
+a special keyword that refers to the object that is currently executing the code. When you use this inside a method, it allows you to access other properties and methods of the same object.
 
+
+without this:
+
+```javascript
+const music = {
+  currentTrack: 'Just Ken',
+  trackIdx: 0,
+  currentPlaylist: ['Just Ken', 'Hey Blondie', 'What Was I Made For', 'Dance The Night'],
+  volume: 70,
+  mute() {
+    music.volume = 0; // we must reference the object by name
+  },
+  next() {
+    music.trackIdx += 1; // we must reference the object by name
+  },
+};
+
+// Calling methods
+music.mute();
+console.log(music.volume);  // Output: 0
+
+music.next();
+console.log(music.currentPlaylist[music.trackIdx]);  // Output: 'Hey Blondie'
+
+```
+
+with this:
+```javascript
+
+const music = {
+  currentTrack: 'Just Ken',
+  trackIdx: 0,
+  currentPlaylist: ['Just Ken', 'Hey Blondie', 'What Was I Made For', 'Dance The Night'],
+  volume: 70,
+  mute() {
+    this.volume = 0;  // 'this' is referring to the music obj
+  },
+  next() {
+    this.trackIdx += 1; 
+    this.currentTrack = this.currentPlaylist[this.trackIdx];
+  },
+};
+
+// Calling methods
+music.mute();
+console.log(music.volume);  // Output: 0
+
+music.next();
+console.log(music.currentTrack);  // Output: 'Hey Blondie'
+
+
+```
+
+By using this, we avoid hardcoding the object name within its methods, making the code easier to maintain and reuse. As you continue learning about JavaScript, understanding this will be essential, especially when you start working with classes and more complex objects.
+
+__`Getters`__
+
+* A getter is used to access the value of an object’s property.
+  
+* It’s defined using the get keyword.
+
+* A getter does not take any arguments and is used like a property, not a function call.
+
+```javascript
+const person = {
+  firstName: 'John',
+  lastName: 'Doe',
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+};
+
+// used like a property, not a function call
+console.log(person.fullName); // 'John Doe'
+```
+__`Setters`__
+
+* A setter is used to set the value of an object’s property.
+  
+* It’s defined using the set keyword.
+
+* A setter takes a single argument and is used to assign a value.
+
+```javascript
+const person = {
+  firstName: 'John',
+  lastName: 'Doe',
+  set fullName(value) {
+    [this.firstName, this.lastName] = value.split(' ');
+  }
+};
+
+// takes a single argument and is used to assign a value
+person.fullName = 'Jane Smith';
+console.log(person.firstName); // 'Jane'
+console.log(person.lastName); // 'Smith'
+```
+__`Iterating Through Properties`__
+
+```javascript
+const student = {
+  name: 'Ashley',
+  email: 'student@email.com',
+  enrolled: true,
+}
+
+```
+
+We can iterate over the keys of the properties using a `for...in` loop:
+
+```javascript
+
+for (let key in student) {
+  console.log(`The value of the ${key} property is ${student[key]}`)
+}
+
+// Output
+// The value of the name property is 'Ashley'
+// The value of the email property is 'student@email.com'
+// The value of the enrolled property is true
+
+```
+
+There’s a couple of nifty ES2017 methods that can be used to iterate over an object’s own keys or values:
+
+`Object.keys(obj)`
+`Object.values(obj)`
+`Object.entries(obj)`
+
+```javascript
+Object.values(student).forEach(function(val) {
+  console.log(val)
+})
+
+// Output
+// 'Ashley'
+// 'student@email.com'
+// true
+
+```
+
+__`Property Shorthand Syntax`__
+
+manually assigning each variable to a property in the book object, even though the property names are the same as the variable names.
+```const title = "To Kill a Mockingbird";
+const author = "Harper Lee";
+const yearPublished = 1960;
+
+const book = {
+  title: title,
+  author: author,
+  yearPublished: yearPublished
+};
+
+console.log(book);
+
+// Output: 
+// { 
+//   title: "To Kill a Mockingbird", 
+//   author: "Harper Lee", 
+//   yearPublished: 1960 
+// }
+```
+
+Simplify this by omitting the property names when they match the variable names:
+
+
+```javascript
+const title = "To Kill a Mockingbird";
+const author = "Harper Lee";
+const yearPublished = 1960;
+
+const book = {
+  title,
+  author,
+  yearPublished
+};
+
+console.log(book);
+
+// Output: 
+// { 
+//   title: "To Kill a Mockingbird", 
+//   author: "Harper Lee", 
+//   yearPublished: 1960 
+// }
+```
+
+__Square Bracket Notation__
+
+__Prototyping and Inheritance__
