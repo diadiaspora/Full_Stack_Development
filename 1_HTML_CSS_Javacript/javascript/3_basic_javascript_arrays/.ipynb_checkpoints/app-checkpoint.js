@@ -89,3 +89,32 @@ console.log('Exercise 12 Results:');
 console.log('  fizz:', fizz);
 console.log('  buzz:', buzz);
 console.log('  fizzbuzz:', fizzbuzz);
+
+
+const numArrays = [
+	[100, 5, 23],
+	[15, 21, 72, 9],
+	[45, 66],
+	[7, 81, 90]
+];
+
+numList = numArrays.at(-1);
+
+console.log('Exercise 13 result:', numList);
+
+
+
+num = numArrays[2][1];
+
+console.log('Exercise 14 result:', num);
+
+
+
+numArrays.forEach((array) => {
+ 
+console.log(array);
+
+});
+
+
+// console.log('Exercise 15 result:\n', total);

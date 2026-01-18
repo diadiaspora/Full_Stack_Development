@@ -1,0 +1,308 @@
+# Objects
+A container that holds related data and functions.
+___
+
+ __Objects are a collection of zero or more properties. A property consists of a key: value pair.__
+
+ * The key acts as an identifier and must be a string or symbol. If any other type is used as a key, it will be coerced into a string.
+
+* The value is a JavaScript expression that evaluates to a single value or thing. This encompasses simple data types like strings, numbers, or booleans. A value can also be an object or a function. When a function is bound to an object, it is called a method.
+
+```javascript
+{
+    name: "Ben Manly"'
+    birthday: "January 1, 2025"
+}
+```
+
+__`Object literal notation`__
+
+[Also known as an <u>Object initializer</u>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer)
+
+Object Literal notation consists of a set of opening and closing curly braces, {}
+
+```javascript
+const music = {};
+console.log(typeof music); // 'object'
+
+//this creates an empty object named music. the type was checked and produced "object"
+
+```
+Adding a property:
+
+```javascript
+const music = { currentTrack: 'Just Ken' };
+console.log(music);
+```
+properties are seperated by commas.
+
+```javascript
+const music = {
+  currentTrack: 'Just Ken',
+  volume: 70
+};
+```
+[<u>Trailing commas</u>](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Trailing_commas) are permitted:
+```javascript
+const music = {
+  currentTrack: 'Just Ken',
+  volume: 70, // <-----trailing comma
+};
+```
+
+__`Dot Notaion`__
+The primary way to access, add, or modify an existing object’s properties is dot notation.
+
+```javascript
+music.currentPlaylist = ['Just Ken', 'Hey Blondie', 'What Was I Made For', 'Dance The Night'];
+
+```
+
+__`Changing an object’s properties`__
+
+To update a property in a JavaScript object, you assign a new value to one of its keys (which is like a label or name for that property):
+
+```javascript
+// const music = {
+//   currentTrack: 'Just Ken',
+//   currentPlaylist: ['Just Ken', 'Hey Blondie', 'What Was I Made For', 'Dance The Night'],
+//   volume: 70, 
+// }
+
+// Let's lower the volume: 
+music.volume = 60;
+
+console.log(music.volume) // 60
+
+```
+When using the assignment operator, if a property doesn’t exist, it is created; otherwise, it’s updated.
+
+__`Deleting an object’s properties`__
+To completely remove a property from an object, we use the delete operator:
+
+```javascript
+const music = {
+  currentTrack: 'Just Ken',
+  currentPlaylist: ['Just Ken', 'Hey Blondie', 'What Was I Made For', 'Dance The Night'],
+  volume: 70, 
+}
+
+// Let's remove our current playlist: 
+delete music.currentPlaylist
+
+console.log(music)
+// { currentTrack: 'Just Ken', volume: 70 }
+
+```
+
+### __`Methods`__
+
+A method is a function that is a property of an object. When a property holds a function, we commonly refer to it as a method of the object.
+
+Methods are used to define actions or behaviors for an object.
+
+```javascript
+const music = {
+  currentTrack: 'Just Ken',
+  currentPlaylist: ['Just Ken', 'Hey Blondie', 'What Was I Made For', 'Dance The Night'],
+  volume: 70,
+  // add the following:
+  mute() {
+    music.volume = 0;
+  },
+};
+
+// You could also use dot notation assignment to define the same method if an object already exists:
+
+music.mute = function () {
+  music.volume = 0;
+};
+
+```
+
+
+__For clarity...__
+`mute` is a property of the `music` object whose value is a function.
+Other properties in the music object are: 
+
+* `currentTrack` → holds a string
+
+* `volume` → holds a number
+
+* `mute` → holds a function
+
+Rewrite it like this to make it clear: 
+
+```javascript
+
+const music = {
+  currentTrack: 'Just Ken',        // string
+  currentPlaylist: [...],          // array
+  volume: 70,                      // number
+  mute: function () {              // function
+    music.volume = 0;
+  },
+};
+
+```
+
+| Property name   | Value type |
+| --------------- | ---------- |
+| currentTrack    | string     |
+| currentPlaylist | array      |
+| volume          | number     |
+| mute            | function   |
+
+when you call mute():
+
+```javascript
+
+music.mute();
+
+```
+
+1. Go to the music object
+
+2. Find the mute property
+
+3. See that its value is a function
+
+4. Execute that function
+
+
+__`Calling object methods`__
+
+In JavaScript, calling (or invoking) a method is similar to calling a function, but with an important difference: a method is called on an object and it only exists within that object’s context.
+
+```javascript
+music.mute();
+// works!
+
+```
+
+When a function is part of an object (a method), you need to specify the object it belongs to.
+
+```javascript
+mute();
+// reference error
+
+```
+__Adding a next() method to the music object__
+
+This method will allow us to move to the next track in our currentPlaylist.
+
+```javascript
+const music = {
+  currentTrack: 'Just Ken',
+  trackIdx: 0,
+  currentPlaylist: ['Just Ken', 'Hey Blondie', 'What Was I Made For', 'Dance The Night'],
+  volume: 70,
+};
+```
+
+With trackIdx, we can dynamically find the current track from currentPlaylist array using square brackets []:
+
+Here this is a console log that identifies the current playlist and then has a bracket that has a number in it that is the track id. in this case that would print just ken because just ken is the first on the current playlist array. 
+
+```javascript
+console.log(music.currentPlaylist[music.trackIdx]); // 'Just Ken'
+
+```
+
+build our next() method. This method should simply increment the trackIdx by 1:
+
+the music next function incriments the number plus one.
+
+```javascript
+music.next = function () {
+  music.trackIdx += 1;
+};
+```
+so when you invoke it. without being seen it changes the value of trackIdx to 1. 
+so when you console the same thing it has a differnent value and prints the second element of the array. 
+
+```javascript
+// invoke the method
+music.next();
+
+console.log(music.currentPlaylist[music.trackIdx]); // 'Hey Blondie'
+
+```
+
+```javascript
+const music = {
+  currentTrack: 'Just Ken',
+  trackIdx: 0,
+  currentPlaylist: ['Just Ken', 'Hey Blondie', 'What Was I Made For', 'Dance The Night'],
+  volume: 70,
+  mute() {
+    music.volume = 0;
+  },
+  next() {
+    music.trackIdx += 1;
+  },
+};
+
+```
+
+current music object:
+
+```javascript
+const music = {
+  currentTrack: 'Just Ken',
+  trackIdx: 0,
+  currentPlaylist: ['Just Ken', 'Hey Blondie', 'What Was I Made For', 'Dance The Night'],
+  volume: 70,
+  mute(){
+    music.volume = 0
+  },
+  next(){
+    music.trackIdx += 1
+    music.currentTrack = music.currentPlaylist[music.trackIdx]
+  },
+}
+
+```
+
+__If we adopted that structure for each song, then our currentPlaylist array would resemble something like this, an array of objects:__
+
+```javascript
+
+music.currentPlaylist = [
+  {
+    title: 'Just Ken',
+    artist: 'Ryan Gosling',
+    album: 'Barbie The Album',
+    length: '3:43',
+  }, {
+    title: 'Hey Blondie',
+    artist: 'Dominic Fike',
+    album: 'Barbie The Album',
+    length: '2:21',
+  }, {
+    title: 'What Was I Made For',
+    artist: 'Billie Eilish',
+    album: 'Barbie The Album',
+    length: '3:42',
+  }, {
+    title: 'Dance The Night',
+    artist: 'Dua Lipa',
+    album: 'Barbie The Album',
+    length: '2:56',
+  }
+];
+
+```
+
+```javascript
+console.log(music.currentPlaylist[music.trackIdx]);
+
+// { title: 'Just Ken', artist: 'Ryan Gosling', album: 'Barbie The Album',length: '3:43' }
+
+console.log(music.currentPlaylist[music.trackIdx].title); // 'Just Ken'
+console.log(music.currentPlaylist[music.trackIdx].artist); // 'Ryan Gosling'
+
+
+```
+
+
