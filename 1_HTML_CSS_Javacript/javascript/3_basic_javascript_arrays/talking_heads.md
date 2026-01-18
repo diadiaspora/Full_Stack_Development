@@ -1,0 +1,1 @@
+[talking heads lab](https://gist.github.com/jim-clark/4125da56458ecf3a42b85f8e1b732590)
