@@ -1,3 +1,5 @@
+[Objects PDF](https://drive.google.com/drive/folders/1vhfUwkUznV8sX2a5KQ7C6oYpiYR8blMg?usp=drive_link)
+
 # Objects
 A container that holds related data and functions.
 ___
@@ -496,6 +498,47 @@ console.log(book);
 // }
 ```
 
+__How Variables Reference Objects__
+Variables are slots in memory that hold a value. All non-object data types are known as primitive or value types because they hold a single value.
+
+```javascript
+SCOPE TABLE            var | value/ref
+                      -----------------
+let x = 25        -->   x  |  25
+var msg = 'hello' -->  msg | 'hello'
+const y = x       -->   y  |  25
+
+```
+
+Objects are complex/reference types because they can hold multiple pieces of data.
+
+Objects, including Arrays, Functions, etc., are stored in a separate part of memory known as the heap. A variable for an object has as its value a “reference” (think pointer):
+
+```javascript
+SCOPE TABLE             var | value/ref
+                       -----------------
+let x = 25         -->   x  |  25
+var msg = 'hello'  -->  msg | 'hello'        HEAP 
+const obj = {a: 1} -->  obj |  ref1   --->  {a: 1} <--|
+let arr = [1,2]    -->  arr |  ref2   --->  [1,2]     |
+let obj2 = obj     -->  obj2|  ref1   -----------------
+
+```
+
+Variables don’t “contain” the object — they point to it.
+
+In this example array one and array two are not equal because even though they have identical values they point to two different arrays.
+
+```javascript
+const arr1 = []
+const arr2 = []
+const arr3 = arr1
+arr1 === arr2  // false!
+arr3 === arr1 // true!
+```
+
 __Square Bracket Notation__
+
+We use square bracket notation instead of dot notation when we’re writing code where we don’t know which property needs to be accessed. 
 
 __Prototyping and Inheritance__

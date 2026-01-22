@@ -1,3 +1,6 @@
+[🔗 Intro to javascript PDF](https://drive.google.com/drive/folders/1Qy_wP95w3N57Yoi_nJ7U9IHCSfhX-2xP?usp=drive_link)
+
+
 ### Variables
 ---
  __<u>variable:</u>__ a named container used to store and retrieve data.
