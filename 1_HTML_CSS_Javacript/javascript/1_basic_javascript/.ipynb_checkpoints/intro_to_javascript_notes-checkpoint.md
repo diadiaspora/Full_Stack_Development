@@ -1,3 +1,6 @@
+[🔗 Intro to javascript PDF](https://drive.google.com/drive/folders/1Qy_wP95w3N57Yoi_nJ7U9IHCSfhX-2xP?usp=drive_link)
+
+
 ### Variables
 ---
  __<u>variable:</u>__ a named container used to store and retrieve data.
@@ -126,4 +129,175 @@ console.log(greeting);
 
 ```
 
+### Dynamically-typed Languages
+---
 
+__<u>Dynamically typed languages</u>__ allow variables to be assigned different types of data during runtime (as the program executes).The type of a variable can change at any time and is assigned a type based on whatever the variable’s value is at the time. 
+
+* Javascript
+* Python
+* Ruby
+
+``` javascript
+// Declare a variable named data and initialize with a number
+let data = 123;
+// Reassigning a different type of data is allowed
+data = 'Hello';
+
+```
+
+__<u>Statistically typed languages</u>__ once a variable is given a type, that type cannot change.
+
+* Java
+* C++
+
+``` C++
+// Declare a variable as an integer and initialize it with an int
+int data = 123;
+// Assigning anything other than an integer raises an error
+data = "Hello"; 
+// NOT ALLOWED
+```
+
+### Weakly Typed Languages
+---
+
+__<u>Weakly typed languages</u>__ allow implicit conversions between types, which can lead to interesting results. 
+
+* Javascript
+
+``` javascript
+const num = 7;
+const sentence = `A week is ${num} days.`;
+console.log(sentence);
+// Prints: A week is 7 days.
+```
+
+__<u>Strongly typed languages</u>__ Conversions between unrelated data types must be explicitly made 
+
+* Python
+
+``` python
+num = 7
+sentence = "A week is " + num + " days."
+# Error! A string and an int cannot be concatenated!
+```
+
+``` python
+num = 7
+sentence = "A week is " + str(num) + " days." 
+# This works!
+print(sentence) 
+# Prints: A week is 7 days.
+```
+
+### Type Conversion
+---
+
+__<u>Implicit type conversion</u>__ is the process of automatically converting one data type to another.
+
+``` javascript 
+13 == '13';
+// true!
+```
+``` javascript 
+13 === '13';
+// false!
+```  
+
+__<u>Explicit type conversion</u>__ is the process of manually converting one data type to another. 
+
+__`toString()`__ 
+converts a value to a string. works with a specific value or object, not globally. Cannot be called on null or undefined (throws an error)
+
+``` javascript 
+let numOne = 123.456;
+let strOne = numOne.toString(); // "123.456"
+// false!
+```
+
+
+__`String()`__
+Converts a value to a string. But unlike  `toString` it is its own independent function that can work globally.Works with null and undefined. Use String() when you want safe, guaranteed conversion
+
+``` javascript 
+let numTwo = 123.456;
+let strTwo = String(numTwo); // "123.456"
+```
+
+
+__`toFixed()`__
+converts a number to a string, rounding it to a specified number of decimal places.
+
+``` javascript 
+let numThree = 123.456;
+let strThree = numThree.toFixed(2); // "123.46"
+```
+
+__`parseInt()`__ 
+parses(converts) a string into an integer by reading from left to right and stopping when it hits a non-numeric character, ignoring any trailing non-numeric characters.
+
+``` javascript 
+let strFour = '1234.567';
+let numFour = parseInt(strFour); // 1234
+
+```
+
+__`parseFloat()`__
+reads a string from left to right and parses(converts) the leading numeric portion<u>including decimals</U> —into a number.
+
+``` javascript 
+let strFive = '1234.567';
+let numFive = parseFloat(strFive); // 1234.567
+
+```
+
+__`Number()`__
+
+converts a value into a number using JavaScript’s numeric conversion rules. returns NaN if conversion fails.
+
+``` javascript 
+let strSix = '1234.567';
+let numSix = Number(strSix); // 1234.567
+
+```
+``` javascript 
+Number("42");      // 42
+Number("3.14");    // 3.14
+Number(true);      // 1
+Number(false);     // 0
+```
+
+
+
+### References
+___
+
+Links from the module lesson content:
+
+[MDN - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[MDN - Variables](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#declarations)
+[MDN - Reserved words](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#keywords)
+[Ecma International’s TC39 committee](https://www.ecma-international.org/technical-committees/tc39/?tab=general)
+
+__Online resources__
+
+High-quality resources on JavaScript fundamentals can help deepen your understanding.
+
+Here are some recommended ones:
+
+[MDN Web Docs (Mozilla Developer Network)](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics)
+
+* Description: Comprehensive reference for web technologies, including JavaScript.
+
+[JavaScript.info - Variables](https://javascript.info/variables)
+
+* Description: Offers an in-depth and step-by-step guide on JavaScript, including variables. Beginner-friendly with interactive examples.
+  
+[JavaScript.info - Data Types](https://javascript.info/types)
+
+Same as above, but for data types.
+
+[Eloquent JavaScript](https://eloquentjavascript.net/01_values.html)
+
+* Description: A popular book by Marijn Haverbeke available online for free. This chapter provides a deep dive into data types and values.

@@ -542,3 +542,20 @@ __Square Bracket Notation__
 We use square bracket notation instead of dot notation when we’re writing code where we don’t know which property needs to be accessed. 
 
 __Prototyping and Inheritance__
+
+### References
+___
+
+[Object - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+
+[get](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get)
+
+[set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
+
+[Object.keys(obj)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)
+
+[Object.values(obj)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Object/values)
+
+[Object.entries(obj)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
+
+[Object Prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)

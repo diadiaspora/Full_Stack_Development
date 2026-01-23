@@ -273,3 +273,8 @@ acc starts as {} and eventually becomes the tally object.
 tally is an object that contains the count of each vote type: { ‘Yes’: 3, ‘No’: 2 }.
 8. While it is true that reduce COULD be used to handle the same tasks as almost all of the other examples you’ve seen in this module, best practice is to stay focused on what reduce truly excels at, which is reducing an array down to a single value - an object, a number, a string, etc.
 
+
+### References
+___
+
+[Array - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)

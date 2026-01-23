@@ -818,3 +818,14 @@ if (age >= 18) {
 let result = age >= 18 ? "adult" : "minor";
 
 ```
+
+### References
+___
+
+[MDN - Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions)
+
+[MDN - Rest parameter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
+
+[MDN - Spread syntax (...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+
+[MDN - Grouping operator ()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Grouping)

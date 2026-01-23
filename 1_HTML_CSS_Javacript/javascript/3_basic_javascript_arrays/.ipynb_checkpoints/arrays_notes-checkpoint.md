@@ -173,3 +173,209 @@ Declarative programming is a decree unconcerned with how the result happens, jus
 Declarative approach that provides a more readable way to iterate over all array elements. This method clearly communicates a developer’s intention to process each item and perform an action on each.
 
 movies.forEach(callbackFunction);
+
+
+) The array that we will iterate through, in this case, movies. 2) The forEach() method. This method always returns undefined, no matter what code is inside the callback function. 3) The callback function is where we will write the function that will be executed for each item in the movies array.
+
+📚 A callback function is a function passed into another function as an argument.
+
+
+___
+for each does not produce a value
+
+What “always returns undefined” Means
+
+```javascript
+const result = movies.forEach(movie => {
+  return movie.toUpperCase();
+});
+
+console.log(result); // undefined
+```
+
+Even though the callback returns something, the forEach() method itself does not.
+
+➡️ forEach() ignores the callback’s return value.
+
+forEach() is used when you want to:
+
+log something
+
+modify an existing array/object
+
+trigger side effects (DOM updates, counters, API calls)
+
+| Method      | Returns     | Purpose                    |
+| ----------- | ----------- | -------------------------- |
+| `forEach()` | `undefined` | Do something for each item |
+| `map()`     | new array   | Transform items            |
+| `filter()`  | new array   | Select items               |
+| `reduce()`  | any value   | Accumulate                 |
+
+
+___
+
+```javascript
+// as a reminder, movies is ['Barbie', 'Arrival', 'Get Out', 'Coco']
+
+movies.forEach((movie) => {
+  console.log(movie)
+});
+
+```
+
+🏆 It’s recommended to name the first parameter (representing each item) as a singular form of the array’s name. So, if your array is named movies, name the parameter movie.
+
+Remember this callback function runs for each item in the movies array. movie is an individual element in the movies array. So in the first iteration movie will be 'Barbie'. In the second, it will be 'Arrival', and so on.
+
+This code will result in the following output:
+
+```javascript
+Barbie
+Arrival
+Get Out
+Coco
+```
+
+In addition to the current element, forEach() also provides the index of the current element to the callback function:
+
+```javascript
+
+movies.forEach((movie, index) => {
+  if(index === 2) console.log("This is the third movie:");
+  console.log(movie);
+});
+```
+
+Which will result in the following output:
+
+```javascript
+Barbie
+Arrival
+This is the third movie:
+Get Out
+Coco
+```
+
+Using named functions with __`forEach()`__
+
+Most of the time, you’ll provide an anonymous callback function to the forEach() method. However, you can also provide a named function. This can be useful when carrying the same generic action on multiple arrays.
+
+```javascript
+const logElements = (element) => {
+  console.log(element);
+};
+
+movies.forEach(logElements);
+books.forEach(logElements);
+
+```
+__`forEach()`__ and function declarations
+
+
+### __`join()`__
+
+combines all of the string elements in an array and returns a single string.
+___
+
+```javascript
+// as a reminder, movies is ['Barbie', 'Arrival', 'Get Out', 'Coco']
+let movieString = movies.join();
+// movieString is 'Barbie,Arrival,Get Out,Coco'
+
+movieString = movies.join(' -- ');
+// movieString is 'Barbie -- Arrival -- Get Out -- Coco'
+
+```
+
+### __`at()`__
+___
+JavaScript does not support negative indexing using square bracket
+
+ `at()` method directly accessws elements by their index and accepts negative indexes. 
+
+ ```javascript
+// movies is ['Barbie', 'Arrival', 'Get Out', 'Coco']
+const lastMovieAt = movies.at(-1);  
+// lastMovieAt is 'Coco'
+
+ ```
+
+ ### __`unshift()`__
+
+ add one or multiple items at the start of the array.
+
+ ```javascript
+ movies.unshift('Dune', 'John Wick');
+// movies is ['Dune', 'John Wick', 'Barbie', 'Arrival', 'Get Out', 'Coco']
+
+ ```
+
+ ### __`shift()`__
+remove from the front of an array with shift():
+shift() removes only one element at a time and don’t take any arguments. These methods both return the element that was removed from the array:
+ ```javascript
+ movies.shift();
+// movies is ['John Wick', 'Barbie', 'Arrival', 'Get Out', 'Coco']
+
+ ```
+
+ push(), pop(), unshift(), and shift()
+
+ ### Refernces
+ ___
+
+ esson references
+Links from the module lesson content:
+
+[MDN - Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+
+[MDN - Array length property](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length)
+
+[MDN - Array push() method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
+
+[MDN - Array pop() method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop)
+
+[MDN - for...of statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
+
+[MDN - break statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break)
+
+[MDN - Array forEach() method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+
+[MDN - Array at() method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/at)
+
+[MDN - Spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+
+[MDN - Array slice() method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
+
+[MDN - Array join() method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join)
+
+[MDN - structuredClone() global function](https://developer.mozilla.org/en-US/docs/Web/API/structuredClone)
+
+[MDN - Array unshift() method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift)
+
+[MDN - Array shift() method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift)
+
+
+__Online resources__
+
+JavaScript arrays are fundamental to the language, high-quality resources can help deepen your understanding.
+
+Here are some recommended ones:
+
+[MDN Web Docs (Mozilla Developer Network)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+
+Description: Comprehensive reference for web technologies, including JavaScript. The documentation on arrays is thorough and includes examples.
+
+[Javascript.info](https://javascript.info/array)
+
+Description: Offers an in-depth and step-by-step guide on JavaScript, including arrays. Beginner-friendly with interactive examples.
+
+[W3Schools](https://www.w3schools.com/js/js_arrays.asp)
+
+Description: Provides a simple and clear introduction to many web technologies, including JavaScript arrays.
+
+
+[Eloquent JavaScript](https://eloquentjavascript.net/04_data.html)
+
+Description: A popular book by Marijn Haverbeke available online for free. This chapter provides a deep dive into arrays and objects.

@@ -59,3 +59,20 @@ function getRandomInt(max) {
 ### Built in Classes
 
 The JavaScript Math object contains a lot of useful methods and values that we can reference. We don’t characterize the Math object as a class though, because we cannot use it to instantiate or create new objects. This makes sense because we don’t need new math objects to use its helpful properties. We have all the functionality we need baked into Math. We can just use this object directly.
+
+### References
+___
+
+[Math](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math)
+
+[Built-in Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
+
+[Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+[getFullYear()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getFullYear)
+
+[getDate()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getDate)
+
+[getTime()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime)
+
+[.now()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/now)

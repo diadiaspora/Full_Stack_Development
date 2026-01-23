@@ -601,3 +601,10 @@ Strict Equality:
 3 === 3
 
 ```
+
+### References
+___
+
+[MDN - Increment (++) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Increment)
+
+[MDN - Exponentiation (**) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation)
