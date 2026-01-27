@@ -37,7 +37,26 @@ addOne(-5) //=> -4
 -----------------------------------------------------------------------------*/
 // Your solution for 01-addOne here:
 
+function addOne1(num) {
+    total = num + 1
+    return total
+}
 
+console.log(addOne1(5));
+
+const addOne = function (num) {
+    total = num + 1
+    return total
+}
+
+console.log(addOne(8));
+
+const addOne2 = (num) => {
+    total = num + 1
+    return total
+}
+
+console.log(addOne2(9));
 
 /*-----------------------------------------------------------------------------
 Challenge: 02-addTwoNumbers
@@ -49,6 +68,8 @@ Prompt:
 - Write a function called addTwoNumbers that accepts two numeric arguments and
   returns the sum of those two numbers.
 - If either argument is not a number, return the value of NaN.
+
+
 
 Examples:
 
@@ -66,7 +87,26 @@ addTwoNumbers('Hello', 5) //=> NaN
 
 //if addTwoNumbers (typeof === NaN) {return NaN;}
 
+function addTwoNumbers(num1, num2) {
+    total = num1 + num2
+    return total
+}
 
+console.log(addTwoNumbers(5, 6));
+
+const add2Numbers = function(num1,num2) {
+     total = num1 + num2
+    return total
+}
+
+console.log(add2Numbers(8, 6));
+
+const addTwo = (num1,num2) => {
+     total = num1 + num2
+    return total
+}
+
+console.log(addTwo(8, 9));
 
 /*-----------------------------------------------------------------------------
 Challenge: 03-sumNumbers
@@ -89,9 +129,14 @@ sumNumbers([]) //=> 0
 // Your solution for 03-sumNumbers here:
 
 
+function sumNumbers(arr) {
+  return arr.reduce((sum, num) => sum + num, 0);
+}
 
+console.log(sumNumbers([10,5]));
 
-
+// starts at the first number
+// then goes to the second number
 // -----------------------------------------------------------------------------*/
 // Challenge: 04-addList
 
