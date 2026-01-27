@@ -129,11 +129,32 @@ sumNumbers([]) //=> 0
 // Your solution for 03-sumNumbers here:
 
 
-function sumNumbers(arr) {
-  return arr.reduce((sum, num) => sum + num, 0);
+function sumNumbers(array) {
+  return array.reduce((sum, num) => sum + num, 0);
+
 }
 
 console.log(sumNumbers([10,5]));
+
+// const sumNum = (array) => {
+ 
+    
+//     array.reduce((sum, num) => {
+//       return sum + num;
+//     }, 0);
+
+// };
+
+// console.log(sumNum([5,5]));
+
+
+const sumNum = (array) => {
+  return array.reduce((sum, num) => sum + num, 0);
+};
+
+console.log(sumNum([5, 5])); // 10
+
+
 
 // starts at the first number
 // then goes to the second number
