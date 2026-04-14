@@ -9,6 +9,9 @@ Otherwise, return false.
 
 const containsLetterA = (str) => {
 
+  return str.toLowerCase().includes('o');
+
+
 }
 
 console.log('Exercise 1 Result:', containsLetterA("apple"));
@@ -24,7 +27,10 @@ Otherwise, return false.
 
 const containsWordJavaScript = (str) => {
 
+    return str.toLowerCase().includes("javascript");
+
 }
+
 
 console.log('Exercise 2 Result:', containsWordJavaScript("I love JavaScript"));
 
