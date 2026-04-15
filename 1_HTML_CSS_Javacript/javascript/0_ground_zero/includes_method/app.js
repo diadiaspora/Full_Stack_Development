@@ -45,6 +45,10 @@ Return false otherwise.
 
 const isCharAVowel = (char) => {
 
+    vowels = ["a", "e", "i", "o", "u"]
+
+    return vowels.includes(char)
+
 }
 
 console.log('Exercise 3 Result:', isCharAVowel("e"));
@@ -59,8 +63,16 @@ Otherwise, return false.
 */
 
 const hasNumber = (str) => {
+  const numbers = ["0","1","2","3","4","5","6","7","8","9"];
 
+  for (let num of numbers) {
+    if (str.includes(num)) {
+      return true;
+    }
+  }
+  return false;
 }
+
 
 console.log('Exercise 4 Result:', hasNumber("abc3def"));
 
@@ -75,7 +87,17 @@ Otherwise, return false.
 
 const hasSpace = (str) => {
 
+    const space = " "
+
+    return str.includes(space)
+
 }
+
+/*
+const hasSpace = (str) => {
+  return str.includes(" ");
+}
+*/
 
 console.log('Exercise 5 Result:', hasSpace("hello world"));
 
@@ -89,6 +111,8 @@ Otherwise, return false.
 */
 
 const hasBanana = (arr) => {
+
+    return arr.includes("banana");   
 
 }
 
@@ -104,10 +128,33 @@ Otherwise, return false.
 */
 
 const hasSpecialCharacter = (str) => {
-
+    const characters = ["!", "@", "#", "$", "%", "^", "&", "*"]
+    
+    for (let char of characters) {
+        if (str.includes(char)) {
+        return true;}
+    } 
+      return false
 }
 
 console.log('Exercise 7 Result:', hasSpecialCharacter("hello!"));
+
+/*
+if (str.includes(char)) {
+  return true;
+} else {
+  return false; // ❌ BAD
+}
+
+👉 This would stop on the first character only, which is wrong.
+
+Example:
+
+First char checked = "!" → not found
+else runs → returns false ❌
+You never check "@", "#", etc.
+*/
+
 
 /*
 Exercise 8: containsBannedWord()
@@ -121,6 +168,13 @@ Otherwise, return false.
 
 const containsBannedWord = (str) => {
 
+    banned = ["bad", "hate", "angry"]
+
+    for (let ban of banned) {
+        if (str.toLowerCase().includes(ban)) {
+            return true}
+    } 
+   return false
 }
 
 console.log('Exercise 8 Result:', containsBannedWord("I am angry"));
@@ -136,9 +190,17 @@ Otherwise, return false.
 
 const hasVowelInWord = (word) => {
 
+    vowels = ["a", "e", "i", "o", "u"]
+
+    for (let vowel of vowels) {
+        if (word.toLowerCase().includes(vowel)) {
+            return true }
+        }
+        return false
+
 }
 
-console.log('Exercise 9 Result:', hasVowelInWord("sky"));
+console.log('Exercise 9 Result:', hasVowelInWord("skye"));
 
 /*
 Exercise 10: haveCommonLetter()
@@ -150,6 +212,14 @@ Otherwise, return false.
 */
 
 const haveCommonLetter = (str1, str2) => {
+     
+  for (let letter of str1) {
+    if (str2.includes(letter)) {
+      return true;
+    }
+  }
+  return false;
+}
 
 }
 
