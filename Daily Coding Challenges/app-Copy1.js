@@ -14,6 +14,10 @@ sayHello() //=> Hello!
 // Your solution for 00-sayHello (example) here:
 
 
+function sayHello() {
+  return "Hello!";
+}
+
 
 
 /*-----------------------------------------------------------------------------
@@ -33,7 +37,26 @@ addOne(-5) //=> -4
 -----------------------------------------------------------------------------*/
 // Your solution for 01-addOne here:
 
+function addOne1(num) {
+    total = num + 1
+    return total
+}
 
+console.log(addOne1(5));
+
+const addOne = function (num) {
+    total = num + 1
+    return total
+}
+
+console.log(addOne(8));
+
+const addOne2 = (num) => {
+    total = num + 1
+    return total
+}
+
+console.log(addOne2(9));
 
 /*-----------------------------------------------------------------------------
 Challenge: 02-addTwoNumbers
@@ -64,7 +87,26 @@ addTwoNumbers('Hello', 5) //=> NaN
 
 //if addTwoNumbers (typeof === NaN) {return NaN;}
 
+function addTwoNumbers(num1, num2) {
+    total = num1 + num2
+    return total
+}
 
+console.log(addTwoNumbers(5, 6));
+
+const add2Numbers = function(num1,num2) {
+     total = num1 + num2
+    return total
+}
+
+console.log(add2Numbers(8, 6));
+
+const addTwo = (num1,num2) => {
+     total = num1 + num2
+    return total
+}
+
+console.log(addTwo(8, 9));
 
 /*-----------------------------------------------------------------------------
 Challenge: 03-sumNumbers
@@ -87,7 +129,12 @@ sumNumbers([]) //=> 0
 // Your solution for 03-sumNumbers here:
 
 
+function sumNumbers(array) {
+  return array.reduce((sum, num) => sum + num, 0);
 
+}
+
+console.log(sumNumbers([10,5]));
 
 // const sumNum = (array) => {
  
@@ -101,7 +148,11 @@ sumNumbers([]) //=> 0
 // console.log(sumNum([5,5]));
 
 
+const sumNum = (array) => {
+  return array.reduce((sum, num) => sum + num, 0);
+};
 
+console.log(sumNum([5, 5])); // 10
 
 
 

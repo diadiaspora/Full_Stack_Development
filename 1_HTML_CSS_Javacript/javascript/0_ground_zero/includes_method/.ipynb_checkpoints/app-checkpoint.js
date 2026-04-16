@@ -9,8 +9,7 @@ Otherwise, return false.
 
 const containsLetterA = (str) => {
 
-  return str.toLowerCase().includes('o');
-
+ return str.toLowerCase().includes("a");
 
 }
 
@@ -27,7 +26,7 @@ Otherwise, return false.
 
 const containsWordJavaScript = (str) => {
 
-    return str.toLowerCase().includes("javascript");
+    return str.includes("JavaScript");
 
 }
 
@@ -51,7 +50,7 @@ const isCharAVowel = (char) => {
 
 }
 
-console.log('Exercise 3 Result:', isCharAVowel("e"));
+console.log('Exercise 3 Result:', isCharAVowel("p"));
 
 /*
 Exercise 4: hasNumber()
@@ -63,14 +62,17 @@ Otherwise, return false.
 */
 
 const hasNumber = (str) => {
-  const numbers = ["0","1","2","3","4","5","6","7","8","9"];
 
-  for (let num of numbers) {
-    if (str.includes(num)) {
-      return true;
-    }
-  }
-  return false;
+    const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+    for (let num of numbers) {
+        if (str.includes(num)) {
+     return true; 
+        }
+    } 
+    return false;
+    
+
 }
 
 
@@ -87,17 +89,9 @@ Otherwise, return false.
 
 const hasSpace = (str) => {
 
-    const space = " "
-
-    return str.includes(space)
+    return str.includes(" ");
 
 }
-
-/*
-const hasSpace = (str) => {
-  return str.includes(" ");
-}
-*/
 
 console.log('Exercise 5 Result:', hasSpace("hello world"));
 
@@ -112,11 +106,24 @@ Otherwise, return false.
 
 const hasBanana = (arr) => {
 
-    return arr.includes("banana");   
+    return arr.includes("banana");
+
 
 }
 
 console.log('Exercise 6 Result:', hasBanana(["apple", "banana", "orange"]));
+
+/*
+const hasBanana = (arr) => {
+    
+    for (let item of arr) {
+        if (item.toLowerCase() === "banana") {
+            return true;
+        }
+    }
+    return false;
+}
+*/
 
 /*
 Exercise 7: hasSpecialCharacter()
@@ -128,13 +135,15 @@ Otherwise, return false.
 */
 
 const hasSpecialCharacter = (str) => {
+
     const characters = ["!", "@", "#", "$", "%", "^", "&", "*"]
-    
-    for (let char of characters) {
+
+    for (let char of characters){
         if (str.includes(char)) {
-        return true;}
-    } 
-      return false
+            return true;}
+    }
+    return false;
+
 }
 
 console.log('Exercise 7 Result:', hasSpecialCharacter("hello!"));
@@ -168,16 +177,17 @@ Otherwise, return false.
 
 const containsBannedWord = (str) => {
 
-    banned = ["bad", "hate", "angry"]
+    words = ["bad", "angry", "hate"]
 
-    for (let ban of banned) {
-        if (str.toLowerCase().includes(ban)) {
-            return true}
-    } 
-   return false
+    for (let word of words) {
+        if (str.toLowerCase().includes(word)){
+            return true
+        }
+    } return false
+
 }
 
-console.log('Exercise 8 Result:', containsBannedWord("I am angry"));
+console.log('Exercise 8 Result:', containsBannedWord("I am happy"));
 
 /*
 Exercise 9: hasVowelInWord()
@@ -192,11 +202,11 @@ const hasVowelInWord = (word) => {
 
     vowels = ["a", "e", "i", "o", "u"]
 
-    for (let vowel of vowels) {
-        if (word.toLowerCase().includes(vowel)) {
-            return true }
+        for (let vowel of vowels) {
+    if (word.toLowerCase().includes(vowel)) {
+        return true
         }
-        return false
+    } return false
 
 }
 
@@ -211,9 +221,18 @@ Return true if the two strings share at least one letter.
 Otherwise, return false.
 */
 
-const haveCommonLetter = (str1, str2) => {
-
+const haveCommonLetter = (word1, word2) => {
+     
+  for (let letter of word1) {
+    if (word2.includes(letter)) {
+      return true;
+    }
+  }
+  return false;
 }
+
+
+
 
 console.log('Exercise 10 Result:', haveCommonLetter("cat", "car"));
 
