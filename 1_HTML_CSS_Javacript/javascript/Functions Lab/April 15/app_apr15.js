@@ -1,6 +1,7 @@
 
-
 /*
+
+Functions lab
 Exercise 1: maxOfTwoNumbers()
 
 In this exercise, create a function named maxOfTwoNumbers. 
@@ -30,13 +31,8 @@ Example: isAdult(21) should return 'Adult'.
 
 Complete the exercise in the space below:
 */
-const isAdult = (age) => {
-    if ( age >= 18) {
-        return "Adult";
-    } 
-        return "Minor";
-    
-}
+
+
 
 console.log('Exercise 2 Result:', isAdult(21));
 
@@ -53,21 +49,8 @@ Example: isCharAVowel('a') should return true.
 Complete the exercise in the space below:
 */
 
-const isCharAVowel = (char) => {
-    vowels = "aeiou"
-
-    for (let vowel of vowels) {
-        if (char.toLowerCase().includes(vowel)) {
-            return true;
-            }
-        }
-    return false;
-        
-}
 
 console.log('Exercise 3 Result:', isCharAVowel("a"));
-
-
 
 /*
 Exercise 4: generateEmail()
@@ -81,12 +64,10 @@ should return 'johnsmith@example.com'.
 Complete the exercise in the space below:
 */
 
-const generateEmail = (name, domain) => {
 
-    return `${name}@${domain}` 
-}
 
- console.log('Exercise 4 Result:', generateEmail("johnsmith", "example.com"));
+console.log('Exercise 4 Result:', generateEmail("johnsmith", "example.com"));
+
 
 
 /*
@@ -101,13 +82,11 @@ Example: greetUser('Sam', 'morning') should return "Good morning, Sam!"
 Complete the exercise in the space below:
 */
 
-const greetUser = (name, time) => {
-    
-    return `Good ${time}, ${name}`
-    
-}
 
- console.log('Exercise 5 Result:', greetUser("Sam", "morning"));
+
+console.log('Exercise 5 Result:', greetUser("Sam", "morning"));
+
+
 
 /*
 Exercise 6: maxOfThree()
@@ -121,12 +100,9 @@ Complete the exercise in the space below:
 */
 
 
-const maxOfThree = (num1, num2, num3) => {
-    
-    return Math.max(num1, num2, num3);
-}
 
 console.log('Exercise 6 Result:', maxOfThree(5, 10, 8));
+
 
 
 /*
@@ -141,12 +117,10 @@ Example: calculateTip(50, 20) should return 10.
 Complete the exercise in the space below:
 */
 
-const calculateTip = (bill, perc) => {
-    return bill * perc/100;
-}
 
 
 console.log('Exercise 7 Result:', calculateTip(50, 20));
+
 
 
 /*
@@ -162,15 +136,6 @@ Example: convertTemperature(32, 'F') should return 0 (Celsius).
 
 Complete the exercise in the space below:
 */
-
-const convertTemperature = (temp, scale) => {
-
-    if (scale === "C") {
-        return temp * 9/5 + 32
-    } else {
-        return (temp - 32) * 5/9
-    }
-}
 
 
 
@@ -195,8 +160,6 @@ Complete the exercise in the space below:
 
 
 
-// console.log('Exercise 9 Result:', basicCalculator(10, 5, "subtract"));
-
-
+console.log('Exercise 9 Result:', basicCalculator(10, 5, "subtract"));
 
 
