@@ -322,6 +322,53 @@ shift() removes only one element at a time and don’t take any arguments. These
 
  push(), pop(), unshift(), and shift()
 
+ ### __`splice`__
+
+ The arguments to splice() are:
+
+1 → start at index 1 (before "cheeseburger")
+0 → remove 0 elements
+'tofu' → insert this element at that position.
+
+
+foods.splice(1, 0, 'tofu');
+
+### __`slice`__
+
+slice() is used to copy part of an array into a new array. It does not change the original array.
+
+array.slice(start, end)
+
+```javascript
+const foods = ['pizza', 'tofu', 'cheeseburger', 'taco'];
+
+const result = foods.slice(1, 3);
+
+console.log(result);
+```
+* start = where to begin copying (inclusive)
+* end = where to stop copying (exclusive, not included)
+  
+### __`includes`__
+
+The includes() method checks whether an array contains a specific value.
+
+```javascript
+array.includes(value)
+```
+
+It returns:
+
+* true if the value is found
+* false if the value is not found
+
+```javascript
+const foods = ['pizza', 'tofu', 'cheeseburger'];
+
+console.log(foods.includes('tofu'));
+```
+
+
  ### Refernces
  ___
 
