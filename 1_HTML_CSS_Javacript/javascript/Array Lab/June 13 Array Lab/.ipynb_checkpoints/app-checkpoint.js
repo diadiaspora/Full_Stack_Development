@@ -203,9 +203,16 @@ Hint: Be sure to declare and initialize the total variable before the iterations
 Complete Exercise 15 in the space below:
 */
 
+const numArrayz = [
+[100, 5, 23],
+[15, 21, 72, 9],
+[45, 66],
+[7, 81, 90]
+];
+
 let total = 0;
 
-numArrays.forEach((numArray) => {
+numArrayz.forEach((numArray) => {
   numArray.forEach((num) => {
     total += num;
   });

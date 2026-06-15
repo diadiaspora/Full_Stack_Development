@@ -322,6 +322,148 @@ shift() removes only one element at a time and don’t take any arguments. These
 
  push(), pop(), unshift(), and shift()
 
+ ### __`splice`__
+
+ The arguments to splice() are:
+
+1 → start at index 1 (before "cheeseburger")
+0 → remove 0 elements
+'tofu' → insert this element at that position.
+
+
+foods.splice(1, 0, 'tofu');
+
+### __`slice`__
+
+slice() is used to copy part of an array into a new array. It does not change the original array.
+
+array.slice(start, end)
+
+```javascript
+const foods = ['pizza', 'tofu', 'cheeseburger', 'taco'];
+
+const result = foods.slice(1, 3);
+
+console.log(result);
+```
+* start = where to begin copying (inclusive)
+* end = where to stop copying (exclusive, not included)
+  
+### __`includes`__
+
+The includes() method checks whether an array contains a specific value.
+
+```javascript
+array.includes(value)
+```
+
+It returns:
+
+* true if the value is found
+* false if the value is not found
+
+```javascript
+const foods = ['pizza', 'tofu', 'cheeseburger'];
+
+console.log(foods.includes('tofu'));
+```
+
+The difference is between:
+
+```js
+total += num
+```
+
+and
+
+```js
+total =+ num
+```
+
+They look very similar, but they mean completely different things.
+
+### `+=` (add and assign)
+
+```js
+total += num
+```
+
+is shorthand for:
+
+```js
+total = total + num
+```
+
+So each number gets added to the running total.
+
+Example:
+
+```js
+total = 0
+total += 100  // 100
+total += 5    // 105
+total += 23   // 128
+```
+
+This gives the correct final answer:
+
+```js
+534
+```
+
+---
+
+### `=+` (assign positive value)
+
+```js
+total =+ num
+```
+
+is interpreted as:
+
+```js
+total = (+num)
+```
+
+The `+` is just the unary plus operator, which converts a value to a positive number.
+
+So instead of adding to the total, you're **replacing** `total` every time.
+
+Example:
+
+```js
+total = 0
+
+total =+ 100  // 100
+total =+ 5    // 5
+total =+ 23   // 23
+...
+total =+ 90   // 90
+```
+
+The final value becomes whatever the **last number processed** was:
+
+```js
+90
+```
+
+because `90` is the last element in the nested arrays.
+
+---
+
+A quick way to remember it:
+
+| Code           | Meaning                             |
+| -------------- | ----------------------------------- |
+| `total += num` | Add `num` to `total`                |
+| `total -= num` | Subtract `num` from `total`         |
+| `total *= num` | Multiply `total` by `num`           |
+| `total /= num` | Divide `total` by `num`             |
+| `total =+ num` | Set `total` equal to positive `num` |
+| `total =- num` | Set `total` equal to negative `num` |
+
+This is a very common typo in JavaScript, and it's one that even experienced developers occasionally make.
+
  ### Refernces
  ___
 
