@@ -1,7 +1,6 @@
 //Psuedocode
 
 // I want to be able to select numbers so that I can perform operations with them.
-
 // I want to be able to add two numbers together.
 //  I want to be able to multiply two numbers together.
 //  I want to be able to subtract one number from another.
