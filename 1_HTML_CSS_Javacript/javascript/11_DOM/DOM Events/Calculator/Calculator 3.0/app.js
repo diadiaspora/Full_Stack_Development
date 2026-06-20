@@ -22,6 +22,36 @@ let clear = "";
 
 /*----------------------------- Event Listeners -----------------------------*/
 
+numbers.forEach((item) => {
+    item.addEventListener('click', (event) => {
+       
+        const value = event.target.innerText;
+
+        if (oper === "") {
+            num1 += value;
+            display.innerText = num1;
+        } else {
+            num2 += value;
+            display.innerText += value;
+        }
+
+    });
+});
+
+operators.forEach((item) => {
+    item.addEventListener('click', (event) => {
+        const value = event.target.innerText;
+        
+        if (oper === "") {
+            oper = value;
+            display.innerText += oper;
+        } else {
+            return;
+        }
+     
+    });
+
+});
 /*-------------------------------- Functions --------------------------------*/
 init();
 
@@ -51,6 +81,9 @@ function operate() {
     case "+":
       result = nums1 * nums2;
       break;
+
+    default:
+      result = "Invalid operator";
   }
 
   display.innerText = result;
