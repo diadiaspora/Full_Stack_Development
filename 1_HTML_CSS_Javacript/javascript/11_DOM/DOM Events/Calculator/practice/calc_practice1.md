@@ -46,7 +46,7 @@ function operate () {
     const nums2 = parseFloat(num2);
 
     switch (oper) {
-        case: oper = '+';
+        case: '+';
             return nums1 + nums2;
             break;
         

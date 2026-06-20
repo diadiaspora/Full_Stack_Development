@@ -46,10 +46,10 @@ function operate() {
     const nums1 = parseFloat(num1);
     const nums2 = parseFloat(num2);
 
-    switch {
-        case (oper = '+';
+    switch (oper) {
+        case: '+';
             result = nums1 + nums2;
-        break;
+            break;
     }
 }
 
