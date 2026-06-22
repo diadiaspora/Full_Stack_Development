@@ -32,15 +32,15 @@ numbers.forEach((item) =>
 
     if (oper === '') {
         num1 += value;
-        display.innerText  num1;
+        display.innerText = num1;
     } else {
         num2 += value;
-        display.innerText = value;
+        display.innerText += value;
     }
   )};
 });
 
-operators.forEach((item) =>
+operators.forEach((item) => {
     item.addEventListener('click', (event)) => {
         const value = event.target.innerText;
     if (oper === '') {
@@ -49,8 +49,8 @@ operators.forEach((item) =>
     } else {
         return;
     }
-      )};
-    )};
+      });
+    });
 
 
 clearButton = addEventListener('click', init);
