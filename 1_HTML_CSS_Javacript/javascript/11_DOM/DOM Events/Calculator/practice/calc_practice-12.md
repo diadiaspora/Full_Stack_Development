@@ -6,7 +6,7 @@ const display = querySelect('.display');
 const numbers = querySelectAll('.number');
 const operators = querySelectAll('.operator');
 const clearButton = querySelect('.clear');
-const equalsButton = querySelect('.equal');
+const equalsButton = querySelect('.equals');
 
 ```
 
@@ -16,7 +16,7 @@ const equalsButton = querySelect('.equal');
 let num1 = '';
 let num2 = '';
 let oper = '';
-let result = '';
+let result = null;
 let clear = ''; 
 
 
@@ -68,8 +68,9 @@ function init() => {
      num1 = '';
      num2 = '';
      oper = '';
-     result = '';
+     result = null;
      clear = ''; 
+    display.innerText = '0';
 };
 
 function operate () => {
