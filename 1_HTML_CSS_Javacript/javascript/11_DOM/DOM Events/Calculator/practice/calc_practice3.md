@@ -19,7 +19,7 @@ let num1 = '';
 let num2 = '';
 let oper = '';
 let clear = '';
-let display = null;
+let result = null;
 
 
 ```
