@@ -68,7 +68,7 @@ function init() {
    oper = '';
    clear = '';
    result = null;
-    display.innerText = '0';
+   display.innerText = '0';
 } 
 
 function operate() {
