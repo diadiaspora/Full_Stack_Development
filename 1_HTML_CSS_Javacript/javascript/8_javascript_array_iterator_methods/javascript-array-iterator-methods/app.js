@@ -74,3 +74,59 @@ const awesome = instructors.map((instructor) => {
 });
 
 console.log(awesome);
+
+// filter()
+/* 
+Select specific elements from a source array, based on defined criteria
+
+Its callback function requires a conditional statement that will either resolve to truthy or falsy when returned, and filter() uses that
+value to decide if it should “keep” the element or not. If the condition is falsy, the element is excluded (or “discarded”) from the new array.
+The new array will thus have only “true” elements, based on the criteria provided.
+*/
+
+const arr = [true, false, true, false, true];
+
+const filteredArr = arr.filter((element) => {
+  return element;
+});
+
+console.log(filteredArr);
+
+/* 
+_______________________________________________
+ */
+
+const arr1 = [true, false, 0, "string", "", null, undefined, 42];
+
+const filteredArray = arr1.filter((element) => {
+  return element;
+});
+
+console.log(filteredArray);
+
+const numbs = [100, 2, 5, 42, 99];
+
+const numsOver50 = numbs.filter((num) => {
+  return num > 50;
+});
+
+console.log(numsOver50);
+
+/* __________________________________________ */
+
+const odds = numbs.filter((num) => {
+  return num % 2;
+});
+
+console.log(odds);
+
+/* __________________________________________ */
+
+
+const people = ["jerks", "nice people", "jerks", "nice people", "nice people"];
+
+const notJerks = people.filter((person) => {
+  return person !== "jerks";
+});
+
+console.log(notJerks);
