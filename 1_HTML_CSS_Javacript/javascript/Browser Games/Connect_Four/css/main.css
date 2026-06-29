@@ -40,22 +40,32 @@ h1{
   margin-bottom:18px;
 }
 
-#markers div{
-  width:0;
-  height:0;
+#markers > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  border-left:18px solid transparent;
-  border-right:18px solid transparent;
-  border-top:28px solid rgba(255,255,255,.6);
+  width: 80px;
+  height: 60px;
 
-  justify-self:center;
+  font-size: 2.5rem;
+  cursor: pointer;
 
-  transition:.2s;
+  transition: transform 0.2s ease;
 }
 
-#markers div:hover{
-  transform:translateY(6px) scale(1.2);
-  border-top-color:gold;
+#markers > div:hover {
+  transform: translateY(6px) scale(1.2);
+}
+
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(8px); }
+  100% { transform: translateY(0); }
+}
+
+#markers > div:hover {
+  animation: bounce 0.5s ease infinite;
 }
 
 #board{
