@@ -22,6 +22,12 @@ TURN:
 
 /*----- constants -----*/
 
+const COLORS = {
+    '1': 'red',
+    '-1': 'orange',
+    'null': 'white',
+};
+
 /*----- state variables -----*/
 // define but do not assign to (initialize)
 let board = []; // 2D array / 1/-1 -> player value; -> cell is empty
@@ -50,6 +56,7 @@ function init() {
     [null, null, null, null, null, null], // column 5
     [null, null, null, null, null, null], // column 6
   ];
+    
   winner = null;
   turn = 1;
   render();
@@ -59,7 +66,7 @@ function init() {
 the purpose of the render() function is to transfer/visualize in the DOM */
 function render() {
     renderBoard();
-    // renderMessage();
+    renderMessage();
     // renderControls();
     
 }
@@ -68,10 +75,7 @@ function renderBoard() {
     board.forEach((colArr, colIdx) => { 
         colArr.forEach((cellVal, rowIdx) => { 
             const cellEl = document.getElementById(`c${colIdx}r${rowIdx}`);
-            cellEl.style.background = 'red';
-
+            cellEl.style.background = COLORS[cellVal];
         });
-
     });
-
 }
