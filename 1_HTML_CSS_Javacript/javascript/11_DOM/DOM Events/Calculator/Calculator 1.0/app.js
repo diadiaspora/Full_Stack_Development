@@ -8,7 +8,7 @@
 //  I want to be able to see the output of the mathematical operation.
 //  I want to be able to clear all operations and start from 0.
 
-/*-------------------------------- Constants --------------------------------*/
+/*-------------------------------- Constants/model --------------------------------*/
 
 const numbers = document.querySelectorAll(".number");
 
@@ -23,7 +23,7 @@ const calculator = document.querySelector("#calculator");
 const display = document.querySelector(".display");
 
 
-/*-------------------------------- Variables --------------------------------*/
+/*-------------------------------- Variables/Model/cache --------------------------------*/
 // State Variables
 
 let num1 = "";
@@ -33,7 +33,7 @@ let result = null;
 let clear = "";
 
 
-/*----------------------------- Event Listeners -----------------------------*/
+/*----------------------------- Event Listeners/Ccontrollers -----------------------------*/
 
 
 numbers.forEach((item) => {
