@@ -41,6 +41,7 @@ let turn; // the player whose turn it is.
 
 /*----- cached elements  -----*/
 const msgEl = document.querySelector('h1');
+const playAgainBtn = document.getElementById('play');
 
 /*----- event listeners -----*/
 
@@ -74,17 +75,17 @@ the purpose of the render() function is to transfer/visualize in the DOM */
 function render() {
    renderBoard();
    renderMessage();
-    // renderControls();
+   renderControls();
 
 }
 
 function renderBoard() {
     board.forEach((colArr, colIdx) => { 
-        console.log(colArr);
-        console.log(colIdx);
+        // console.log(colArr);
+        // console.log(colIdx);
         colArr.forEach((cellVal, rowIdx) => { 
-            console.log(cellVal);
-            console.log(rowIdx);
+            // console.log(cellVal);
+            // console.log(rowIdx);
 
             const cellEl = document.getElementById(`c${colIdx}r${rowIdx}`);
             cellEl.style.background = COLORS[cellVal];
@@ -106,5 +107,8 @@ function renderMessage() {
 }
 
 function renderControls() { 
-
+    // ternary expression - use when you want to return one of two values
+    //<conditional exp> ? <truthy exp> : <falsy exp>
+    playAgainBtn.style.visibility = winner ? 'visible' : 'hidden';
+    // TODO: conditionally render the markers
 }
