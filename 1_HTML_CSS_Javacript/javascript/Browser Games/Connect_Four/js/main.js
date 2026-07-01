@@ -22,19 +22,25 @@ TURN:
 
 /*----- constants -----*/
 
+//look up data structure
+
+
+
 const COLORS = {
-    '1': 'red',
+    '1': 'red', 
     '-1': 'orange',
     'null': 'white',
+    
 };
 
 /*----- state variables -----*/
 // define but do not assign to (initialize)
-let board = []; // 2D array / 1/-1 -> player value; -> cell is empty
-let winner = null; // null -> no winner or tie, game id in progress; 1/-1 -> the player that won ; 'Tie' -> the game has tied
-let turn = 1; // the player whose turn it is.
+let board; // 2D array / 1/-1 -> player value; -> cell is empty
+let winner; // null -> no winner or tie, game id in progress; 1/-1 -> the player that won ; 'Tie' -> the game has tied
+let turn; // the player whose turn it is.
 
 /*----- cached elements  -----*/
+const msgEl = document.querySelector('h1');
 
 /*----- event listeners -----*/
 
@@ -46,7 +52,8 @@ init();
 function init() {
   // to visualize the mapping (connection) between
   // the board array and the cells/divs in the DOM.
-  // "rotate" the board 90 degrees counter clockwise
+    // "rotate" the board 90 degrees counter clockwise
+    
   board = [
     [null, null, null, null, null, null], // column 0
     [null, null, null, null, null, null], // column 1
@@ -56,7 +63,7 @@ function init() {
     [null, null, null, null, null, null], // column 5
     [null, null, null, null, null, null], // column 6
   ];
-    
+
   winner = null;
   turn = 1;
   render();
@@ -65,17 +72,32 @@ function init() {
 /* 
 the purpose of the render() function is to transfer/visualize in the DOM */
 function render() {
-    renderBoard();
-    renderMessage();
+     renderBoard();
+   // renderMessage();
     // renderControls();
-    
+
 }
 
 function renderBoard() {
     board.forEach((colArr, colIdx) => { 
+        console.log(colArr);
+        console.log(colIdx);
         colArr.forEach((cellVal, rowIdx) => { 
+            console.log(cellVal);
+            console.log(rowIdx);
+
             const cellEl = document.getElementById(`c${colIdx}r${rowIdx}`);
             cellEl.style.background = COLORS[cellVal];
         });
     });
+}
+
+function renderMessage() {
+    msgEl.innerHTML = 'Player';
+    // msgEl.innerHTML = `<span style ="color:${COLORS[turn]}"${COLORS[turn].toUpperCase()}> </span>'s turn`;
+
+}
+
+function renderControls() { 
+
 }
