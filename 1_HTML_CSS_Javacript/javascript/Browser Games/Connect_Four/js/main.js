@@ -72,8 +72,8 @@ function init() {
 /* 
 the purpose of the render() function is to transfer/visualize in the DOM */
 function render() {
-     renderBoard();
-   // renderMessage();
+   renderBoard();
+   renderMessage();
     // renderControls();
 
 }
@@ -93,9 +93,16 @@ function renderBoard() {
 }
 
 function renderMessage() {
-    msgEl.innerHTML = 'Player';
-    // msgEl.innerHTML = `<span style ="color:${COLORS[turn]}"${COLORS[turn].toUpperCase()}> </span>'s turn`;
-
+    // msgEl.innerHTML = 'Player';
+    if (winner === null) { 
+        
+        msgEl.innerHTML = `<span style ="color:${COLORS[turn]}"> ${COLORS[turn].toUpperCase()}</span>'s Turn`;
+    } else if (winner === 'Tie') {
+        msgEl.innerHTML = "Its a Tie";
+    } else {
+        // there is a winner
+        msgEl.innerHTML = `<span style ="color:${COLORS[winner]}"> ${COLORS[winner].toUpperCase()}</span>' Wins!`;
+    }
 }
 
 function renderControls() { 
